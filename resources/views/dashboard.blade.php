@@ -39,31 +39,32 @@
                         <div class="card-body">
                             <form method="post" action="{{ route('template') }}" enctype="multipart/form-data">
                                 @csrf
-                                <h3 class="text-danger text-bold">*Fill the Form correctly</h3>
+                                <h3 class="text-danger text-bold" style="font-weight: bolder;">*Fill the Form correctly</h3>
+
                                 <div class="row">
                                     <div class="col-md-6">
                                         <div class="mb-3">
-                                            <label for="client_name" class="form-label">Client Name</label>
+                                            <label for="client_name" class="form-label" style="font-weight: 600;">Client Name</label>
                                             <input type="text" required="" class="rounded form-control" id="client_name" name="client_name" placeholder="Enter client name">
                                         </div>
                                         <div class="mb-3">
-                                            <label for="client_email" class="form-label">Client Email</label>
+                                            <label for="client_email" class="form-label" style="font-weight: 600;">Client Email</label>
                                             <input type="email" required="" class="rounded form-control" id="client_email" name="client_email" placeholder="Enter client email">
                                         </div>
                                     </div>
                                     <div class="col-md-6">
                                         <div class="mb-3">
-                                            <label for="email_subject" class="form-label">Email Subject</label>
+                                            <label for="email_subject" class="form-label" style="font-weight: 600;">Email Subject</label>
                                             <input type="text" required="" class="rounded form-control" id="email_subject" name="email_subject" placeholder="Enter email subject">
                                         </div>
                                         <div class="mb-3">
-                                            <label for="file_attachments" class="form-label">File Attachments</label>
+                                            <label for="file_attachments" class="form-label" style="font-weight: 600;">File Attachments</label>
                                             <input type="file" required="" class="py-2 px-3 border-primary rounded form-control bg-secondary" id="document" name="document">
                                         </div>
                                     </div>
                                     <div class="col-md-12">
                                         <div class="mb-3">
-                                            <label for="email_body" class="form-label">Email Body</label>
+                                            <label for="email_body" class="form-label" style="font-weight: 800;">Email Body</label>
                                             <textarea required="" class="form-control" style="height:200px !important;" rows="20" id="email_body" name="email_body" placeholder="Write email body"></textarea>
                                         </div>
                                     </div>
@@ -111,8 +112,21 @@
 
     <script>
         $(document).ready(function() {
-            // Initialize Summernote
-            $('#email_body').summernote();
+            $('#email_body').summernote({
+                toolbar: [
+                    ['color', ['color']],
+                    ['style', ['bold', 'italic', 'underline', 'clear']],
+                    ['insert', ['picture']],
+                    ['highlight', ['highlight']],
+                ],
+                styleTags: ['p', 'h1', 'h2', 'h3', 'h4', 'h5', 'h6'], // Include heading styles
+                stylePara: {
+                    tag: 'p', // Set the default tag to 'p' for left-aligned paragraphs
+                    className: 'text-left', // Apply the 'text-left' class for left alignment
+                    style: 'text-align:left;', // Apply the inline style for left alignment
+                },
+                minHeight: 140, // Set the default height to 200px
+            });
         });
     </script>
 
