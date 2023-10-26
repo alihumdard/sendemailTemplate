@@ -4,85 +4,116 @@
             {{ __('Send Email') }}
         </h2>
     </x-slot>
-
-
-
+    @if (session('success'))
+    <script>
+        Swal.fire({
+            icon: 'success',
+            title: 'Success!',
+            text: "@json(session('success'))",
+        });
+    </script>
+    @endif
+    <link href="https://cdn.jsdelivr.net/gh/summernote/summernote@0.8.18/dist/summernote.css" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/gh/summernote/summernote@0.8.18/dist/summernote.min.js"></script>
     <div class="py-12">
         <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
             <div class="bg-white overflow-hidden shadow-sm sm:rounded-lg">
-                <div class="p-6 text-gray-900">
-
-                    <div class="row d-flex justify-content-end">
-                        <div class="col-lg-2 col-md-3 col-sm-12">
-                            <button class="btn btn-primary btn-block" data-bs-toggle="modal" data-bs-target="#addUserModal">Add
-                                User</button>
-                        </div>
+                <div class=" bg-black p-6 text-gray-900">
+                    <div class="d-grid gap-2 d-md-flex justify-content-md-end  mb-3">
+                        <button id="btn_template1" class="btn btn-primary me-md-2 bg-warning" type="button">Template One</button>
+                        <button id="btn_template2" class="btn btn-primary  bg-primary" type="button">Template Two</button>
                     </div>
+
                     <div class="table-responsive-lg">
-                        <table class="table mt-3">
-                            <thead class="table-dark ">
-                                <tr>
-                                    <th>#</th>
-                                    <th>Name</th>
-                                    <th>Email</th>
-                                    <th>Phone</th>
-                                    <th>Status</th>
-                                    <th>Action</th>
-                                </tr>
-                            </thead>
-                            <tbody id="table-data">
+                        <div class="d-flex justify-content-center min-vh-100 align-items-top">
+                            <iframe id="if_template1" class=" border-red rounded w-100" src="https://docs.google.com/document/d/1FcHBI0d8sZkfmu0raJlPrIWbGnUFlQJhq1tlyeNPqjg/edit?usp=sharing"></iframe>
 
-                                <tr>
-                                    <td colspan="6" rowspan="5">
-                                        <div class="d-flex justify-content-center min-vh-100 align-items-center">
-                                            <div class="spinner-border" role="status">
-                                                <span class="visually-hidden">Loading...</span>
-                                            </div>
-                                        </div>
-                                    </td>
-                                </tr>
-                            </tbody>
-                        </table>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-
-    {{-- add user modal start --}}
-    <div class="modal fade" id="addUserModal" tabindex="-1" aria-labelledby="adduser" aria-hidden="true">
-        <div class="modal-dialog">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <h5 class="modal-title" id="exampleModalLabel">Add User</h5>
-                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                </div>
-                <form id="user-from" action="storeUser" enctype="multipart/form-data">
-                    <div class="modal-body">
-                        <input type="hidden" id="bearer_token" value="{{session('bearer_token')}}">
-                        <input type="hidden" name="password" id="password" value="12345678">
-                        <input type="hidden" name="id" id="user_id" value="">
-                        <div class="mb-3">
-                            <label for="recipient-name" class="col-form-label">User Name:</label>
-                            <input type="text" name="name" class="form-control" id="user-name">
-                            <label for="recipient-name" class="col-form-label">User Email:</label>
-                            <input type="email" name="email" class="form-control" id="user-email">
-                            <label for="recipient-name" class="col-form-label">Email Subject:</label>
-                            <input type="text" name="subject" class="form-control" id="subject">
-                            <label for="recipient-name" class="col-form-label">Email Body:</label>
-                            <textarea name="body" class="form-control" id="body">  </textarea>
-                            <label for="recipient-name" class="col-form-label">Email Files:</label>
-                            <input type="file" name="file" class="border p-2 form-control" id="file" />
+                            <iframe id="if_template2" class="d-none border-red rounded w-100" src="https://docs.google.com/document/d/1l-0cVkO1RSTkaExamODmDwkEmMoh0UByOIRu2IbEK1Y/edit?usp=sharing"></iframe>
                         </div>
                     </div>
-                    <div class="modal-footer">
-                        <button type="button" class="btn btn-warning" data-bs-dismiss="modal">Close</button>
-                        <button type="submit" style="background-color:green;" class="btn btn-success" id="btn_save">Send Email</button>
+
+                    <div class="card text-center mt-5">
+                        <div class="card-header">
+                            <h3 class="card-title bold">Send Mail to User</h3>
+                        </div>
+                        <div class="card-body">
+                            <form method="post" action="{{ route('template') }}" enctype="multipart/form-data">
+                                @csrf
+                                <h3 class="text-danger text-bold">*Fill the Form correctly</h3>
+                                <div class="row">
+                                    <div class="col-md-6">
+                                        <div class="mb-3">
+                                            <label for="client_name" class="form-label">Client Name</label>
+                                            <input type="text" required="" class="rounded form-control" id="client_name" name="client_name" placeholder="Enter client name">
+                                        </div>
+                                        <div class="mb-3">
+                                            <label for="client_email" class="form-label">Client Email</label>
+                                            <input type="email" required="" class="rounded form-control" id="client_email" name="client_email" placeholder="Enter client email">
+                                        </div>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <div class="mb-3">
+                                            <label for="email_subject" class="form-label">Email Subject</label>
+                                            <input type="text" required="" class="rounded form-control" id="email_subject" name="email_subject" placeholder="Enter email subject">
+                                        </div>
+                                        <div class="mb-3">
+                                            <label for="file_attachments" class="form-label">File Attachments</label>
+                                            <input type="file" required="" class="py-2 px-3 border-primary rounded form-control bg-secondary" id="document" name="document">
+                                        </div>
+                                    </div>
+                                    <div class="col-md-12">
+                                        <div class="mb-3">
+                                            <label for="email_body" class="form-label">Email Body</label>
+                                            <textarea required="" class="form-control" style="height:200px !important;" rows="20" id="email_body" name="email_body" placeholder="Write email body"></textarea>
+                                        </div>
+                                    </div>
+                                    <div class="col-sm-12">
+                                        <div class="d-grid gap-2 col-6 mx-auto">
+                                            <button type="submit" class="bg-success btn btn-success">Mail to Client</button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </form>
+
+                        </div>
                     </div>
-                </form>
+
+                </div>
             </div>
         </div>
     </div>
-    {{-- add user modal end --}}
-    @include('apicall')
+    <link href="https://cdn.jsdelivr.net/gh/summernote/summernote@0.8.18/dist/summernote.css" rel="stylesheet">
+    <script>
+        $(document).ready(function() {
+            // Initially, show the first iframe and hide the second iframe
+            $('#if_template2').addClass('d-none');
+
+            // When Template One button is clicked
+            $('#btn_template1').click(function() {
+                // Hide Template Two iframe
+                $('#if_template2').addClass('d-none');
+                // Show Template One iframe
+                $('#if_template1').removeClass('d-none');
+            });
+
+            // When Template Two button is clicked
+            $('#btn_template2').click(function() {
+                // Hide Template One iframe
+                $('#if_template1').addClass('d-none');
+                // Show Template Two iframe
+                $('#if_template2').removeClass('d-none');
+            });
+        });
+    </script>
+
+
+    <script src="https://cdn.jsdelivr.net/gh/summernote/summernote@0.8.18/dist/summernote.min.js"></script>
+
+    <script>
+        $(document).ready(function() {
+            // Initialize Summernote
+            $('#email_body').summernote();
+        });
+    </script>
+
 </x-app-layout>

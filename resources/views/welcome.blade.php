@@ -20,7 +20,7 @@
             @auth
             <a href="{{ url('/dashboard') }}" class="btn btn-success btn-lg">Go To Dashboard</a>
             @else
-            <a href="{{ route('login') }}" class="btn btn-secondary btn-lg m-3">Log with Gmail</a>
+            <a href="{{ route('login') }}" class="btn btn-secondary btn-lg m-3">Log with Account</a>
             @if (Route::has('register'))
             <a href="{{ route('register') }}" class="btn btn-primary btn-lg m-3">Got For Registeration</a>
             @endif

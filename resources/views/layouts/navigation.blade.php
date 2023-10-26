@@ -16,7 +16,7 @@
                         {{ __('Send Mail') }}
                     </x-nav-link>
                     <x-nav-link :href="route('template')" :active="request()->routeIs('template')">
-                        {{ __('Create Template') }}
+                        {{ __('Clients Details') }}
                     </x-nav-link>
                 </div>
             </div>
