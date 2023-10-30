@@ -1,10 +1,12 @@
 <?php
 
 use App\Http\Controllers\ProfileController;
+use App\Http\Controllers\UserController;
 use Illuminate\Support\Facades\Route;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Mail;
 use App\Mail\SendEmail;
+use App\Http\Controllers\Auth\RegisteredUserController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -16,17 +18,14 @@ use App\Mail\SendEmail;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
+Route::middleware(['auth', 'verified'])->group(function () {
+    Route::get('/users', [UserController::class, 'users'])->name('users');
+    Route::get('/templates', [UserController::class, 'templates'])->name('templates');
+    Route::get('/dashboard', [UserController::class, 'dashboard'])->name('dashboard');
+    Route::get('/deleteUser/{id}', [UserController::class, 'deleteUser']);
+    Route::get('/register', [RegisteredUserController::class, 'create'])->name('register');
+    Route::post('/register', [RegisteredUserController::class, 'store']);
 });
-
-Route::get('/template', function () {
-    return view('template');
-})->middleware(['auth', 'verified'])->name('template');
-
-Route::get('/dashboard', function () {
-    return view('dashboard');
-})->middleware(['auth', 'verified'])->name('dashboard');
 
 Route::middleware('auth')->group(function () {
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
