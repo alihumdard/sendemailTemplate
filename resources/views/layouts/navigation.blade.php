@@ -15,9 +15,17 @@
                     <x-nav-link :href="route('dashboard')" :active="request()->routeIs('dashboard')">
                         {{ __('Send Mail') }}
                     </x-nav-link>
-                    <x-nav-link :href="route('template')" :active="request()->routeIs('template')">
+                    <x-nav-link :href="route('templates')" :active="request()->routeIs('templates')">
                         {{ __('Clients Details') }}
                     </x-nav-link>
+                    @auth
+                    @if(auth()->user()->role === 'Admin')
+                    <x-nav-link :href="route('users')" :active="request()->routeIs('users')">
+                        {{ __('Create Users') }}
+                    </x-nav-link>
+                    @endif
+                    @endauth
+
                 </div>
             </div>
 
