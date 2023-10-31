@@ -68,11 +68,11 @@
         </div>
 
         <div class="flex items-center justify-end mt-4">
-            <a href="/users" class="btn btn-waring text-white rounded border border-black bg-warning ml-4">
+            <a href="/users" class="py-1 px-2 text-white rounded border border-black bg-warning ml-4">
                 {{ __('Cancel') }}
             </a>
 
-            <x-primary-button class="ml-4">
+            <x-primary-button class=" btn  ml-4 text-white ">
                 {{ __('Create New Client') }}
             </x-primary-button>
         </div>
