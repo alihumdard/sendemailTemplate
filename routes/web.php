@@ -23,6 +23,7 @@ Route::middleware(['auth', 'verified'])->group(function () {
     Route::get('/templates', [UserController::class, 'templates'])->name('templates');
     Route::get('/dashboard', [UserController::class, 'dashboard'])->name('dashboard');
     Route::get('/deleteUser/{id}', [UserController::class, 'deleteUser']);
+    Route::post('/sendmail', [UserController::class, 'sendEmail'])->name('sendmail');
     Route::get('/register', [RegisteredUserController::class, 'create'])->name('register');
     Route::post('/register', [RegisteredUserController::class, 'store']);
 });

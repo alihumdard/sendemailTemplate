@@ -9,33 +9,66 @@
             <x-input-error :messages="$errors->get('name')" class="mt-2" />
         </div>
 
-        <!-- Email Address -->
+        <!-- Login Email Address -->
         <div class="mt-4">
-            <x-input-label for="email" :value="__('Email')" />
-            <x-text-input id="email" class="block mt-1 w-full" type="email" name="email" :value="old('email')" required autocomplete="username" />
+            <x-input-label for="login_email" :value="__('Login Email')" />
+            <x-text-input id="login_email" class="block mt-1 w-full" type="email" name="email" :value="old('email')" required autocomplete="username" />
             <x-input-error :messages="$errors->get('email')" class="mt-2" />
         </div>
 
-        <!-- Password -->
+        <!-- Transection Email Address -->
         <div class="mt-4">
-            <x-input-label for="password" :value="__('Password')" />
+            <x-input-label for="mail_username" :value="__('Transectional Email')" />
+            <x-text-input id="mail_username" class="block mt-1 w-full" type="email" name="mail_username" :value="old('mail_username')" required autocomplete="mail_username" />
+            <x-input-error :messages="$errors->get('mail_username')" class="mt-2" />
+        </div>
 
+        <!-- Mail Host -->
+        <div class="mt-4">
+            <x-input-label for="mail_host" :value="__('Mail Host')" />
+            <x-text-input id="mail_host" class="block mt-1 w-full" type="text" name="mail_host" :value="old('mail_host')" required autocomplete="mail_host" />
+            <x-input-error :messages="$errors->get('mail_host')" class="mt-2" />
+        </div>
+
+        <!-- Mail Port-->
+        <div class="mt-4">
+            <x-input-label for="mail_port" :value="__('Mail Port')" />
+            <x-text-input id="mail_port" class="block mt-1 w-full" type="number" name="mail_port" :value="old('mail_port')" required autocomplete="mail_port" />
+            <x-input-error :messages="$errors->get('mail_port')" class="mt-2" />
+        </div>
+
+        <!-- Mail Password-->
+        <div class="mt-4">
+            <x-input-label for="mail_password" :value="__('Mail Password')" />
+            <x-text-input id="mail_password" class="block mt-1 w-full" type="password" name="mail_password" :value="old('mail_password')" required autocomplete="mail_password" />
+            <x-input-error :messages="$errors->get('mail_password')" class="mt-2" />
+        </div>
+
+        <!-- mail encryption -->
+        <div class="mt-4">
+            <x-input-label for="mail_encryption" :value="__('Mail Encryption')" />
+            <select id="mail_encryption" name="mail_encryption" class="block mt-1 w-full border-gray-300 focus:border-indigo-500 focus:ring-indigo-500 rounded-md shadow-sm">
+                <option value="ssl">SSL</option>
+                <option value="tsl">TSL</option>
+            </select>
+        </div>
+
+        <!--Account Password -->
+        <div class="mt-4">
+            <x-input-label for="password" :value="__('Account Password')" />
             <x-text-input id="password" class="block mt-1 w-full" type="password" name="password" required autocomplete="new-password" />
-
             <x-input-error :messages="$errors->get('password')" class="mt-2" />
         </div>
 
         <!-- Confirm Password -->
         <div class="mt-4">
             <x-input-label for="password_confirmation" :value="__('Confirm Password')" />
-
             <x-text-input id="password_confirmation" class="block mt-1 w-full" type="password" name="password_confirmation" required autocomplete="new-password" />
-
             <x-input-error :messages="$errors->get('password_confirmation')" class="mt-2" />
         </div>
 
         <div class="flex items-center justify-end mt-4">
-            <a href="/users" class=" btn btn-pirmary border-black bg-danger ml-4">
+            <a href="/users" class="btn btn-waring text-white rounded border border-black bg-warning ml-4">
                 {{ __('Cancel') }}
             </a>
 
