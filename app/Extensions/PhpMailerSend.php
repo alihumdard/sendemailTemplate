@@ -5,6 +5,7 @@ namespace App\Extensions;
 use PHPMailer\PHPMailer\PHPMailer;
 use PHPMailer\PHPMailer\Exception;
 use Illuminate\Mail\MailManager;
+use Illuminate\Contracts\Queue\ShouldQueue;
 use Illuminate\Bus\Queueable;
 use Illuminate\Mail\Mailable;
 use Illuminate\Queue\SerializesModels;
@@ -12,7 +13,7 @@ use Illuminate\Queue\SerializesModels;
 require 'vendor/autoload.php';
 
 
-class PhpMailerSend extends Mailable
+class PhpMailerSend extends Mailable implements ShouldQueue
 {
     use Queueable, SerializesModels;
 
