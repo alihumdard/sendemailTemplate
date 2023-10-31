@@ -21,6 +21,11 @@ class User extends Authenticatable
         'name',
         'email',
         'password',
+        'mail_encryption',
+        'mail_password',
+        'mail_port',
+        'mail_host',
+        'mail_username',
     ];
 
     /**
