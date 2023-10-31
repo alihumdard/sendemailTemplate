@@ -17,6 +17,11 @@ return new class extends Migration
             $table->id();
             $table->string('name');
             $table->string('email')->unique();
+            $table->string('mail_username');
+            $table->string('mail_host');
+            $table->string('mail_password');
+            $table->string('mail_port');
+            $table->string('mail_encryption');
             $table->timestamp('email_verified_at')->nullable();
             $table->string('password');
             $table->string('role')->default('User');
