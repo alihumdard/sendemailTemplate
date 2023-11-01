@@ -12,15 +12,21 @@ use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Validation\Rules;
 use Illuminate\View\View;
+use Illuminate\Validation\Rule;
+
 
 class RegisteredUserController extends Controller
 {
     /**
      * Display the registration view.
      */
-    public function create(): View
+    public function create($id = NULL)
     {
-        return view('auth.register');
+        $user = NULL;
+        if ($id) {
+            $user = User::find($id);
+        }
+        return view('auth.register', ['user' => $user]);
     }
 
     /**
@@ -32,7 +38,7 @@ class RegisteredUserController extends Controller
     {
         $request->validate([
             'name' => ['required', 'string', 'max:255'],
-            'email' => ['required', 'string', 'email', 'max:255', 'unique:' . User::class],
+            'email' => ['required', 'string', 'email', 'max:255', Rule::unique('users')->ignore($request->id)],
             'mail_username' => ['required', 'string', 'email', 'max:255',],
             'mail_host' => ['required', 'string', 'max:255'],
             'mail_port' => ['required', 'numeric'],
@@ -41,7 +47,7 @@ class RegisteredUserController extends Controller
             'password' => ['required', 'confirmed', Rules\Password::defaults()],
         ]);
 
-        $user = User::create([
+        $userData = [
             'name' => $request->name,
             'email' => $request->email,
             'mail_username' => $request->mail_username,
@@ -50,7 +56,9 @@ class RegisteredUserController extends Controller
             'mail_password' => $request->mail_password,
             'mail_encryption' => $request->mail_encryption,
             'password' => Hash::make($request->password),
-        ]);
+        ];
+
+        User::updateOrcreate(['id' => $request->id], $userData);
 
         return redirect('/users');
     }

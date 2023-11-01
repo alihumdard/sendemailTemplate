@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\UserController;
+use App\Http\Controllers\TemplateController;
 use Illuminate\Support\Facades\Route;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Mail;
@@ -20,12 +21,14 @@ use App\Http\Controllers\Auth\RegisteredUserController;
 
 Route::middleware(['auth', 'verified'])->group(function () {
     Route::get('/users', [UserController::class, 'users'])->name('users');
-    Route::get('/templates', [UserController::class, 'templates'])->name('templates');
+    Route::get('/templates{id?}', [UserController::class, 'templates'])->name('templates');
+    Route::post('/templates', [TemplateController::class, 'store']);
+    Route::get('/deleteTemplate/{id}', [TemplateController::class, 'destroy']);
+    Route::get('/register/{id?}', [RegisteredUserController::class, 'create'])->name('register');
+    Route::post('/register', [RegisteredUserController::class, 'store']);
     Route::get('/dashboard', [UserController::class, 'dashboard'])->name('dashboard');
     Route::get('/deleteUser/{id}', [UserController::class, 'deleteUser']);
     Route::post('/sendmail', [UserController::class, 'sendEmail'])->name('sendmail');
-    Route::get('/register', [RegisteredUserController::class, 'create'])->name('register');
-    Route::post('/register', [RegisteredUserController::class, 'store']);
 });
 
 Route::middleware('auth')->group(function () {

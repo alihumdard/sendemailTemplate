@@ -1,9 +1,10 @@
 <x-app-layout>
     <x-slot name="header">
-        <h2 class="font-semibold text-xl text-gray-800 leading-tight">
-            {{ __('Send Email') }}
+        <h2 class="font-semibold text-center text-xl text-gray-900 leading-tight">
+            {{ __('Users Management') }}
         </h2>
     </x-slot>
+
     <script src="https://cdn.datatables.net/1.13.6/js/jquery.dataTables.min.js"></script>
     <script src="https://cdn.datatables.net/1.13.6/js/dataTables.bootstrap5.min.js"></script>
 
@@ -18,9 +19,12 @@
                 <div class="p-6 text-gray-900">
 
                     <div class="container m-2">
-                        <div class="row justify-content-center">
-                            <div class="col-lg-2 col-md-3 col-sm-12">
-                                <a href="{{ route('register') }}" class="btn btn-primary btn-block">Add New Client</a>
+                        <div class="row justify-content-center mb-1">
+                            <div class="col-lg-2 col-md-3 col-sm-12 my-2">
+                                <a href="{{ route('register') }}" class="btn btn-primary btn-block whitespace-nowrap">Add New Client</a>
+                            </div>
+                            <div class="col-lg-2 col-md-3 col-sm-12 my-2">
+                                <a href="{{ route('templates') }}" class="btn btn-secondary btn-block whitespace-nowrap">Add New Template</a>
                             </div>
                         </div>
                     </div>
@@ -32,7 +36,8 @@
                                 <tr>
                                     <th style="text-align: center;">#</th>
                                     <th style="text-align: center;">Name</th>
-                                    <th style="text-align: center;">Email</th>
+                                    <th style="text-align: center;">Account Email</th>
+                                    <th style="text-align: center;">Transetional Email</th>
                                     <th style="text-align: center;">Status</th>
                                     <th style="text-align: center;">Action</th>
                                 </tr>
@@ -53,14 +58,15 @@
                                     <td style="text-align: center;">{{++$key}}</td>
                                     <td style="text-align: center;">{{ $val['name'] ?? ''}}</td>
                                     <td style="text-align: center;">{{ $val['email'] ?? ''}}</td>
+                                    <td style="text-align: center;">{{ $val['mail_username'] ?? ''}}</td>
                                     <td style="text-align: center;">
                                         <button class="btn btn-success btn-sm rounded-3 bg-success" type="button">Active</button>
                                     </td>
                                     <td style="text-align: center;">
                                         <ul class="list-inline m-0">
-                                            <!-- <li class="list-inline-item rounded">
-                                                    <button class="btn btn-success btn-sm rounded  bg-primary" data-toggle="modal" data-target="#addUserModal" type="button" data-toggle="tooltip" data-placement="top" title="Edit"><i class="fa fa-edit"></i></button>
-                                                </li> -->
+                                            <li class="list-inline-item rounded">
+                                                <a href="{{ route('register', ['id' => $val['id']]) }}" class="btn btn-success btn-sm rounded  bg-primary" type="button" data-toggle="tooltip" data-placement="top" title="Edit"><i class="fa fa-edit"></i></a>
+                                            </li>
                                             <li class="list-inline-item">
                                                 <a href="<?= '/deleteUser/' . $val['id'] ?>" class="btn btn-danger btn-sm rounded  bg-danger" type="button" data-toggle="tooltip" data-placement="top" title="Delete"><i class="fa fa-trash"></i></a>
                                             </li>
@@ -75,43 +81,6 @@
             </div>
         </div>
     </div>
-    </div>
-
-    {{-- add user modal start --}}
-    <div class="modal fade" id="addUserModal" tabindex="-1" aria-labelledby="adduser" aria-hidden="true">
-        <div class="modal-dialog">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <h5 class="modal-title" id="exampleModalLabel">Add User</h5>
-                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                </div>
-                <form id="user-from" action="storeUser" enctype="multipart/form-data">
-                    <div class="modal-body">
-                        <input type="hidden" id="bearer_token" value="{{session('bearer_token')}}">
-                        <input type="hidden" name="password" id="password" value="12345678">
-                        <input type="hidden" name="id" id="user_id" value="">
-                        <div class="mb-3">
-                            <label for="recipient-name" class="col-form-label">User Name:</label>
-                            <input type="text" name="name" class="form-control" id="user-name">
-                            <label for="recipient-name" class="col-form-label">User Email:</label>
-                            <input type="email" name="email" class="form-control" id="user-email">
-                            <label for="recipient-name" class="col-form-label">Email Subject:</label>
-                            <input type="text" name="subject" class="form-control" id="subject">
-                            <label for="recipient-name" class="col-form-label">Email Body:</label>
-                            <textarea name="body" class="form-control" id="body">  </textarea>
-                            <label for="recipient-name" class="col-form-label">Email Files:</label>
-                            <input type="file" name="file" class="border p-2 form-control" id="file" />
-                        </div>
-                    </div>
-                    <div class="modal-footer">
-                        <button type="button" class="btn btn-warning" data-bs-dismiss="modal">Close</button>
-                        <button type="submit" style="background-color:green;" class="btn btn-success" id="btn_save">Send Email</button>
-                    </div>
-                </form>
-            </div>
-        </div>
-    </div>
-    {{-- add user modal end --}}
 
     <script>
         $(document).ready(function() {

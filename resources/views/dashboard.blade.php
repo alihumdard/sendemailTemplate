@@ -1,53 +1,11 @@
 <x-app-layout>
     <x-slot name="header">
-        <h2 class="font-semibold text-xl text-gray-800 leading-tight">
-            {{ __('Send Email') }}
+        <h2 class="font-semibold text-xl text-gray-800 text-center  leading-tight">
+            {{ __('Mails  Management') }}
         </h2>
     </x-slot>
 
-    <style>
-        /* Inline CSS for email compatibility */
-        body {
-            font-family: Arial, sans-serif;
-            background-color: #f4f4f4;
-            margin: 0;
-            padding: 0;
-        }
 
-        .container {
-            max-width: 600px;
-            margin: 0 auto;
-            padding: 20px;
-        }
-
-        .header {
-            background-color: #007BFF;
-            color: #fff;
-            text-align: center;
-            padding: 20px 0;
-        }
-
-        .header h1 {
-            margin: 0;
-        }
-
-        .message {
-            background-color: #fff;
-            padding: 20px;
-        }
-
-        .cta {
-            text-align: center;
-            padding: 20px 0;
-        }
-
-        .footer {
-            background-color: #007BFF;
-            color: #fff;
-            text-align: center;
-            padding: 10px 0;
-        }
-    </style>
 
     <link href="https://cdn.jsdelivr.net/gh/summernote/summernote@0.8.18/dist/summernote.css" rel="stylesheet">
     <script src="https://cdn.jsdelivr.net/gh/summernote/summernote@0.8.18/dist/summernote.min.js"></script>
@@ -70,7 +28,7 @@
 
                     <div class="card text-center mt-5">
                         <div class="card-header">
-                            <h3 class="card-title bold">Send Mail to User</h3>
+                            <h3 class="card-title bold pt-1">Send Mail to User</h3>
                         </div>
                         <div class="card-body">
                             <form method="post" action="{{ route('sendmail') }}" enctype="multipart/form-data">
@@ -111,30 +69,24 @@
                                         <div class="mb-3">
                                             <label for="email_body" class="form-label" style="font-weight: 800;">Email Body</label>
                                             <textarea required="" class="form-control" style="height:200px !important;" rows="20" id="email_body" name="email_body" placeholder="Write email body">
-
-                                                <div class="container">
-                                                    <div class="header">
-                                                        <h1>[purpose] </h1>
+                                                <div class="container" style="max-width: 600px; margin: 0 auto; padding: 20px;">
+                                                    <div class="header" style="background-color: #007BFF; color: #fff; text-align: center; padding: 20px 0;">
+                                                        <h1 style="margin: 0;">[purpose]</h1>
                                                     </div>
-                                                    <div class="message">
-                                                    <p>Dear [Recipient's Name],</p>
-
-                                                        <p>We hope this message finds you well. We wanted to inform you of an exciting opportunity that's coming up!</p><br/>
+                                                    <div class="message" style="background-color: #fff; padding: 20px;">
+                                                        <p>Dear [Recipient's Name],</p>
+                                                        <p>We hope this message finds you well. We wanted to inform you of an exciting opportunity that's coming up!<br></p>
                                                         <p>We look forward to your participation in this event. To reserve your spot, click on the link below:</p>
                                                         <p>Thank you for being a valued member of our community. We hope to see you at the webinar!</p>
-
                                                         <p style="text-align: left !important;">Best regards,</p>
-                                                        <p style="text-align: left !important;" >[Your Name]</p>
+                                                        <p style="text-align: left !important;">[Your Name]</p>
                                                         <p style="text-align: left !important;">[Your Title]</p>
-
                                                     </div>
-                                               
-                                                    <div class="footer">
+                                                    <div class="footer" style="background-color: #007BFF; color: #fff; text-align: center; padding: 10px 0;">
                                                         &copy; {{ date('Y') }} {{ '[companyName]' }}
                                                     </div>
                                                 </div>
-
-                                        </textarea>
+                                            </textarea>
                                         </div>
                                     </div>
                                     <div class="col-sm-12">
@@ -152,6 +104,7 @@
             </div>
         </div>
     </div>
+
     <link href="https://cdn.jsdelivr.net/gh/summernote/summernote@0.8.18/dist/summernote.css" rel="stylesheet">
     <script>
         $(document).ready(function() {

@@ -4,13 +4,30 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\User;
+use App\Models\Template;
 use App\Extensions\PhpMailerSend;
 
 class UserController extends Controller
 {
-    public function templates(Request $request)
+    protected $template_types;
+    public function __construct()
     {
-        return view('template');
+        $this->template_types = config('constants.TEMPLATE_TYPES');
+    }
+    public function templates($id = NULL)
+    {
+        if (auth()->user()->role === 'Admin') {
+
+            if ($id) {
+                $data['template'] = Template::find($id);
+            }
+            $data['user'] = User::where(['role' => 'User', 'status' => 'Active'])->get()->toArray();
+            $data['templates'] = Template::with('user:id,name')->where(['status' => 'Active'])->get()->toArray();
+            $data['templates_types'] = $this->template_types;
+            return view('template', $data);
+        } else {
+            return redirect()->back();
+        }
     }
 
     public function dashboard(Request $request)

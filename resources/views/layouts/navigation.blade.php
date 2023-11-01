@@ -16,7 +16,7 @@
                         {{ __('Send Mail') }}
                     </x-nav-link>
                     <x-nav-link :href="route('templates')" :active="request()->routeIs('templates')">
-                        {{ __('Clients Details') }}
+                        {{ __('Templates') }}
                     </x-nav-link>
                     @auth
                     @if(auth()->user()->role === 'Admin')
@@ -81,7 +81,7 @@
                 {{ __('Send Mail') }}
             </x-responsive-nav-link>
             <x-responsive-nav-link :href="route('templates')" :active="request()->routeIs('templates')">
-                {{ __('Clients Details') }}
+                {{ __('Templates') }}
             </x-responsive-nav-link>
             <x-responsive-nav-link :href="route('users')" :active="request()->routeIs('users')">
                 {{ __('Create Users') }}
