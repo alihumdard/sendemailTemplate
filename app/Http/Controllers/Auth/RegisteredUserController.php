@@ -17,6 +17,14 @@ use Illuminate\Validation\Rule;
 
 class RegisteredUserController extends Controller
 {
+    protected $template_types;
+    protected $email_body;
+    public function __construct()
+    {
+        $this->template_types = config('constants.TEMPLATE_TYPES');
+        $this->email_body  = config('constants.EMAIL_BODY');
+    }
+
     /**
      * Display the registration view.
      */
@@ -55,6 +63,7 @@ class RegisteredUserController extends Controller
             'mail_port' => $request->mail_port,
             'mail_password' => $request->mail_password,
             'mail_encryption' => $request->mail_encryption,
+            'email_body' => base64_encode($this->email_body),
             'password' => Hash::make($request->password),
         ];
 

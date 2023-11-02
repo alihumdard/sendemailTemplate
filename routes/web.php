@@ -21,12 +21,14 @@ use App\Http\Controllers\Auth\RegisteredUserController;
 
 Route::middleware(['auth', 'verified'])->group(function () {
     Route::get('/users', [UserController::class, 'users'])->name('users');
+    Route::get('/emails', [UserController::class, 'emails'])->name('emails');
     Route::get('/templates{id?}', [UserController::class, 'templates'])->name('templates');
     Route::post('/templates', [TemplateController::class, 'store']);
     Route::get('/deleteTemplate/{id}', [TemplateController::class, 'destroy']);
     Route::get('/register/{id?}', [RegisteredUserController::class, 'create'])->name('register');
     Route::post('/register', [RegisteredUserController::class, 'store']);
     Route::get('/dashboard', [UserController::class, 'dashboard'])->name('dashboard');
+    Route::post('/dashboard', [UserController::class, 'duplicate_template'])->name('duplicatemail');
     Route::get('/deleteUser/{id}', [UserController::class, 'deleteUser']);
     Route::post('/sendmail', [UserController::class, 'sendEmail'])->name('sendmail');
 });
@@ -35,6 +37,7 @@ Route::middleware('auth')->group(function () {
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
     Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
+    Route::post('/profile', [ProfileController::class, 'mailsetting'])->name('profile.mailsetting');
 });
 
 

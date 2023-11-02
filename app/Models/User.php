@@ -26,6 +26,10 @@ class User extends Authenticatable
         'mail_port',
         'mail_host',
         'mail_username',
+        'email_body',
+        'email_subject',
+        'cc_email',
+        'reply_email',
     ];
 
     /**
