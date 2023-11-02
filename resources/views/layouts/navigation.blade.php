@@ -15,17 +15,19 @@
                     <x-nav-link :href="route('dashboard')" :active="request()->routeIs('dashboard')">
                         {{ __('Send Mail') }}
                     </x-nav-link>
-                    <x-nav-link :href="route('templates')" :active="request()->routeIs('templates')">
-                        {{ __('Templates') }}
+                    <x-nav-link :href="route('emails')" :active="request()->routeIs('emails')">
+                        {{ __('Emails') }}
                     </x-nav-link>
                     @auth
                     @if(auth()->user()->role === 'Admin')
+                    <x-nav-link :href="route('templates')" :active="request()->routeIs('templates')">
+                        {{ __('Templates') }}
+                    </x-nav-link>
                     <x-nav-link :href="route('users')" :active="request()->routeIs('users')">
                         {{ __('Create Users') }}
                     </x-nav-link>
                     @endif
                     @endauth
-
                 </div>
             </div>
 
@@ -46,7 +48,7 @@
 
                     <x-slot name="content">
                         <x-dropdown-link :href="route('profile.edit')">
-                            {{ __('Profile') }}
+                            {{ __('Setting') }}
                         </x-dropdown-link>
 
                         <!-- Authentication -->
@@ -80,12 +82,19 @@
             <x-responsive-nav-link :href="route('dashboard')" :active="request()->routeIs('dashboard')">
                 {{ __('Send Mail') }}
             </x-responsive-nav-link>
+            <x-responsive-nav-link :href="route('dashboard')" :active="request()->routeIs('dashboard')">
+                {{ __('Emails') }}
+            </x-responsive-nav-link>
+            @auth
+            @if(auth()->user()->role === 'Admin')
             <x-responsive-nav-link :href="route('templates')" :active="request()->routeIs('templates')">
                 {{ __('Templates') }}
             </x-responsive-nav-link>
             <x-responsive-nav-link :href="route('users')" :active="request()->routeIs('users')">
                 {{ __('Create Users') }}
             </x-responsive-nav-link>
+            @endif
+            @endauth
         </div>
 
         <!-- Responsive Settings Options -->
@@ -97,7 +106,7 @@
 
             <div class="mt-3 space-y-1">
                 <x-responsive-nav-link :href="route('profile.edit')">
-                    {{ __('Profile') }}
+                    {{ __('Setting') }}
                 </x-responsive-nav-link>
 
                 <!-- Authentication -->

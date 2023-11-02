@@ -31,6 +31,7 @@ class PhpMailerSend extends Mailable implements ShouldQueue
     protected $email_body = '';
     protected $cc_email = '';
     protected $attachment = '';
+    protected $document = '';
 
     public function __construct($data)
     {
@@ -49,6 +50,7 @@ class PhpMailerSend extends Mailable implements ShouldQueue
         $this->email_subject = $data['email_subject']  ?? NULL;
         $this->email_body    = $data['email_body']  ?? NULL;
         $this->cc_email      = $data['cc_email']  ?? NULL;
+        $this->document      = $data['document']  ?? NULL;
     }
 
     public function send_bulkMail()
@@ -74,6 +76,9 @@ class PhpMailerSend extends Mailable implements ShouldQueue
             // attachements ...
             if ($this->attachment) {
                 $mail->addAttachment($this->attachment->getRealPath(), $this->attachment->getClientOriginalName());
+            } else {
+                $path = public_path($this->document);
+                $mail->addAttachment($path, 'Attachent.pdf');
             }
 
             // Content
@@ -89,8 +94,10 @@ class PhpMailerSend extends Mailable implements ShouldQueue
                 return 'fail';
             }
         } catch (Exception $e) {
+
             http_response_code(500);
-            return "Email sending failed. Error: {$mail->ErrorInfo}";
+            echo "Email sending failed. Error: {$mail->ErrorInfo}";
+            dd('dfas');
         }
     }
 }

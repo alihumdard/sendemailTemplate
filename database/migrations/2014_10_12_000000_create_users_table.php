@@ -17,6 +17,10 @@ return new class extends Migration
             $table->id();
             $table->string('name');
             $table->string('email')->unique();
+            $table->string('reply_email')->nullable();
+            $table->string('cc_email')->nullable();
+            $table->text('email_subject')->nullable();
+            $table->longText('email_body')->nullable();
             $table->string('mail_username');
             $table->string('mail_host');
             $table->string('mail_password');
