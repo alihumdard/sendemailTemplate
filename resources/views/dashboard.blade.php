@@ -19,9 +19,12 @@
 
                     <div class="table-responsive-lg">
                         <div class="d-flex justify-content-center min-vh-100 align-items-top">
-                            @foreach($templates as $key => $val)
-                            <iframe id="if_template_{{++$key}}" class=" {{($key == 1) ? '' : 'd-none'}} border-red rounded w-100" src="{{$val['url']}}"></iframe>
-                            @endforeach
+                            @forelse($templates as $key => $val)
+                            <iframe id="if_template_{{++$key}}" class="{{($key == 1) ? '' : 'd-none'}} border-red rounded w-100" src="{{$val['url']}}"></iframe>
+                            @empty
+                            <iframe id="if_template_default" class=" border-red rounded w-100" src="https://docs.google.com/document/d/1l-0cVkO1RSTkaExamODmDwkEmMoh0UByOIRu2IbEK1Y/edit?usp=sharing"></iframe>
+                            @endforelse
+
                         </div>
                     </div>
 

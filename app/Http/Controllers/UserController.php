@@ -37,8 +37,13 @@ class UserController extends Controller
     public function emails($id = NULL)
     {
         $user = auth()->user();
+       
         $data['user'] = $user;
-        $data['emails'] = Email::where(['user_id' => $user->id, 'status' => 'Active'])->get()->toArray();
+        $emails = Email::where(['status' => 'Active']);
+        if ($user->role === 'User') {
+            $emails->where(['user_id' => $user->id]);
+        }
+        $data['emails'] =$emails->get()->toArray();
         return view('emails', $data);
     }
 
