@@ -97,7 +97,9 @@ class PhpMailerSend extends Mailable implements ShouldQueue
 
             http_response_code(500);
             echo "Email sending failed. Error: {$mail->ErrorInfo}";
-            dd('dfas');
+            return 'fail';
         }
+        
+        
     }
 }

@@ -1,0 +1,111 @@
+
+
+.container .row .col-md-4 p{
+    letter-spacing: 3px;
+}
+table{
+    width: 100%; 
+}
+.bdnone{
+    border: none;
+}
+.table4{
+    align-items: flex-end;
+}
+table tr td{
+    border: 1px solid gray;
+}
+table{
+    border: 2px solid black;
+}
+table tr th{
+    border: 2px solid black;
+}
+table tr td input{
+    height: 1.5rem;
+    width: 100%;
+    border: none;
+}
+.increase{
+    width: 50%;
+    border-bottom: 1px solid black;
+}
+.checkbox{
+    display: inline-flex;
+    padding-left: 5px;
+}
+.checkbox label{
+    padding-left: 5px;
+}
+.datealign{
+    text-align: right;
+}
+/* @media only screen and (max-width: 767px) {
+    table {
+      display: inline-table;
+    }
+  } */
+
+ .row{
+    align-items: center;
+ }
+
+ .logo{
+    padding: 1%;
+    width: 70%;
+ }
+
+ .logu{
+    flex-direction: column;
+    align-items: center;
+ }
+ #printButton1 {
+    width: 10% !important;
+}
+ #printButton2 {
+    width: 10% !important;
+}
+.button-primary-outlined{
+    color: gray !important;
+    border-color: gray !important;
+    border-radius: 24px;
+    padding: 0 20px;
+}
+.button-primary-outlined:hover{
+    color: black !important;
+}
+@media print {
+    #printButton2 {
+        display: none;
+        width: 10% !important;
+    }
+    #printButton1 {
+        display: none;
+        width: 10% !important;
+    }
+    #clearSignature1 {
+        display: none;
+    }
+    #clearSignature2 {
+        display: none;
+    }
+    @page {
+        size: 11.5in 11in;
+    }
+    
+    /* Set zoom level to 120% */
+    body {
+        transform: scale(1);
+        transform-origin: top;
+    }
+}
+.checkboxs{
+    text-align: center;
+}
+.cb{
+    width: 50% !important;
+}
+.d-flex{
+    justify-content: center;
+    align-items: center;
+}
