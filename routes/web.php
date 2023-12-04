@@ -31,7 +31,9 @@ Route::middleware(['auth', 'verified'])->group(function () {
     Route::post('/dashboard', [UserController::class, 'duplicate_template'])->name('duplicatemail');
     Route::get('/deleteUser/{id}', [UserController::class, 'deleteUser']);
     Route::post('/sendmail', [UserController::class, 'sendEmail'])->name('sendmail');
+    // Route::get('/generatepdf', [UserController::class, 'generatepdf']);
 });
+
 
 Route::middleware('auth')->group(function () {
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');

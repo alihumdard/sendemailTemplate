@@ -9,6 +9,7 @@ use App\Models\Template;
 use App\Extensions\PhpMailerSend;
 use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Str;
+use PDF;
 
 class UserController extends Controller
 {
@@ -181,5 +182,22 @@ class UserController extends Controller
         } catch (\Exception $e) {
             echo "Email could not be sent. Error: " . $e->getMessage();
         }
+    }
+
+
+    public function generatepdf(Request $request,) 
+    {
+        dd('rere');
+        $data = [
+            'imagePath'    => public_path('img/profile.png'),
+            'name'         => 'John Doe',
+            'address'      => 'USA',
+            'mobileNumber' => '000000000',
+            'email'        => 'john.doe@email.com'
+        ];
+        $pdf = PDF::loadView('template', $data);
+        $pdf->setPaper('a4', 'portrait');
+        return $pdf->stream('resume.pdf');
+        // return $pdf->download('resume.pdf');
     }
 }
