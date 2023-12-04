@@ -7,6 +7,7 @@
     <title>Template</title>
     <link rel="stylesheet" type="text/css" href="./second.css">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <script src="https://unpkg.com/signature_pad"></script>
     <style>
         @media print {
             #printButton {
@@ -30,6 +31,10 @@
                 transform: scale(1);
                 transform-origin: top;
             }
+
+            #signature-pad {
+                text-align: center;
+            }
         }
     </style>
 
@@ -38,7 +43,10 @@
 <body>
 
     <div class="container">
-        <form action="/api/generatepdf" method="post">
+        <form action="/api/generatepdf" id="pdfForm" method="post"> 
+            <input type="hidden" name="signature_image_a" id="signature_image_a" value="">
+            <input type="hidden" name="signature_image_b" id="signature_image_b" value="">
+            <input type="hidden" name="file_name" id="file_name" value="">
             <div class="row">
                 <div class="col-md-4 d-flex logu">
                     <img src="./Computer_IT.png" class="container logo" alt="logo">
@@ -89,10 +97,10 @@
                     </tr>
                     <tr align="center">
                         <td>PHOTOCOPER</td>
-                        <td><input  name="photo_qty" id="photo_qty" type="number"></td>
-                        <td><input  name="photo_weight" id="photo_weight" type="number"></td>
-                        <td><input  name="photo_item" id="photo_item" type="number"></td>
-                        <td><input  name="photo_code" id="photo_code" type="number"></td>
+                        <td><input name="photo_qty" id="photo_qty" type="number"></td>
+                        <td><input name="photo_weight" id="photo_weight" type="number"></td>
+                        <td><input name="photo_item" id="photo_item" type="number"></td>
+                        <td><input name="photo_code" id="photo_code" type="number"></td>
                     </tr>
                     <tr align="center">
                         <td>SERVER</td>
@@ -110,7 +118,7 @@
                     </tr>
                     <tr align="center">
                         <td>DATA CARRYING MEDIA</td>
-                        <td><input name="data_qty" id="data_qty"  type="number"></td>
+                        <td><input name="data_qty" id="data_qty" type="number"></td>
                         <td><input name="data_weight" id="data_weight" type="number"></td>
                         <td><input name="data_item" id="data_item" type="number"></td>
                         <td><input name="data_code" id="data_code" type="number"></td>
@@ -159,11 +167,11 @@
                                     duty to apply the waste hierarchy as required by Regulations <br>12
                                     of th waste (England and Wales) Regulations 2011<br><br>
                                 <p class="checkbox">
-                                    <input name="yes_check" id="yes_check" type="checkbox" >
+                                    <input name="yes_check" id="yes_check" type="checkbox">
                                     <label for="yes_check">Yes</label>
                                 </p><br>
                                 Full Name: <input name="sec_b_name" id="sec_b_name" type="text" class="increase"><br><br>
-                                Company Name & Address: <input  name="sec_b_comp" id="sec_b_comp" type="text" class="increase"><br><br>
+                                Company Name & Address: <input name="sec_b_comp" id="sec_b_comp" type="text" class="increase"><br><br>
                                 What are you:<br>
                                 (Producers of waste / importer of waste / local authority / holder of environmental
                                 permit)
@@ -227,7 +235,7 @@
                                         <th colspan="2">Data to be processed?</th>
                                         <tr align="center">
                                             <td>Yes</td>
-                                            <td><input name="sec_d_check_yes" id="sec_d_check_yes"type="checkbox" id="check12"></td>
+                                            <td><input name="sec_d_check_yes" id="sec_d_check_yes" type="checkbox" id="check12"></td>
                                         </tr>
                                         <tr align="center">
                                             <td>No</td>
@@ -237,15 +245,15 @@
                                     <table style="width: 30%;">
                                         <tr align="center">
                                             <td>Data Wipe HMG level 1</td>
-                                            <td><input name="sec_d_wipel1" id="sec_d_wipel1"  type="checkbox" id="check12"></td>
+                                            <td><input name="sec_d_wipel1" id="sec_d_wipel1" type="checkbox" id="check12"></td>
                                         </tr>
                                         <tr align="center">
                                             <td>Data Wipe HMG level 3</td>
-                                            <td><input name="sec_d_wipel3" id="sec_d_wipel3"  type="checkbox" id="check11"></td>
+                                            <td><input name="sec_d_wipel3" id="sec_d_wipel3" type="checkbox" id="check11"></td>
                                         </tr>
                                         <tr align="center">
                                             <td>Crush (Charges May Apply)</td>
-                                            <td><input name="sec_d_charges" id="sec_d_charges"  type="checkbox" id="check11"></td>
+                                            <td><input name="sec_d_charges" id="sec_d_charges" type="checkbox" id="check11"></td>
                                         </tr>
                                     </table>
                                 </div>
@@ -257,41 +265,21 @@
                     </table>
                 </div>
             </div>
+
             <div class="row">
                 <div class="col-md-6" style="padding-left: 0;">
                     <table class="table4" border="1">
                         <tr>
                             <td>
                                 <p>Transferee's Signatures:<br><br>
-                                    <style>
-                                        #signature-pad {
-                                            text-align: center;
-                                        }
-                                    </style>
-                                <div id="signature-pad" class="mb-2 text-center">
-                                    <canvas id="driver_signature" style="border: 2px solid gray;"></canvas>
+                                <div class="mb-2 text-center">
+                                    <canvas id="signature_pad_a" style="border: 2px solid gray;"></canvas>
                                 </div>
-                                <div id="signature-pad" class="mb-2 text-center">
-                                    <button class="button-primary-outlined button-round" id="clearSignature">Clear</button>
+                                <div class="mb-2 text-center">
+                                    <button type="button" class="button-primary-outlined button-round" id="clearSignature_a">Clear</button>
                                 </div>
-
-                                <script src="https://unpkg.com/signature_pad"></script>
-                                <script>
-                                    document.addEventListener('DOMContentLoaded', function() {
-                                        var canvas = document.getElementById('driver_signature');
-                                        var signaturePad = new SignaturePad(canvas, {
-                                            backgroundColor: 'white',
-                                            penColor: 'black',
-                                        });
-
-                                        // Clear the signature
-                                        document.getElementById('clearSignature').addEventListener('click', function() {
-                                            signaturePad.clear();
-                                        });
-                                    });
-                                </script>
                                 </p><br>
-                                <p>Name: <input name="signature_name_a" id="signature_name_a" type="text"  class="increase"></p><br>
+                                <p>Name: <input name="signature_name_a" id="signature_name_a" type="text" class="increase"></p><br>
                                 <p>Representing: <input name="signature_repesent_a" id="signature_repesent_a" type="text" class="increase"></p>
                             </td>
                         </tr>
@@ -302,32 +290,12 @@
                         <tr>
                             <td>
                                 <p>Transferee's Signatures:<br><br>
-                                    <style>
-                                        #signature-pad {
-                                            text-align: center;
-                                        }
-                                    </style>
-                                <div id="signature-pad2" class="mb-2 text-center">
-                                    <canvas id="driver_signature2" style="border: 2px solid gray;"></canvas>
+                                <div class="mb-2 text-center">
+                                    <canvas id="signature_pad_b" style="border: 2px solid gray;"></canvas>
                                 </div>
-                                <div id="signature-pad2" class="mb-2 text-center">
-                                    <button class="button-primary-outlined button-round" id="clearSignature2">Clear</button>
+                                <div class="mb-2 text-center">
+                                    <button type="button" class="button-primary-outlined button-round" id="clearSignature_b">Clear</button>
                                 </div>
-
-                                <script>
-                                    document.addEventListener('DOMContentLoaded', function() {
-                                        var canvas = document.getElementById('driver_signature2');
-                                        var signaturePad = new SignaturePad(canvas, {
-                                            backgroundColor: 'white',
-                                            penColor: 'black',
-                                        });
-
-                                        // Clear the signature
-                                        document.getElementById('clearSignature2').addEventListener('click', function() {
-                                            signaturePad.clear();
-                                        });
-                                    });
-                                </script>
                                 </p><br>
                                 <p>Name: <input name="signature_name_b" id="signature_name_b" type="text" class="increase"></p><br>
                                 <p>Representing:<input name="signature_repesent_b" id="signature_repesent_b" type="text" class="increase"> </p>
@@ -336,18 +304,9 @@
                     </table>
                 </div>
             </div><br>
-            <input type="submit" value="download pdf">
+            <input type="image" class="img-fluid" src="pdf_download.png" alt="PDF Download" id="printButton1">
         </form>
     </div>
-
-    <img src="pdf_download.png" alt="PDF Download" id="printButton1">
-
-    <script>
-        document.getElementById("printButton1").addEventListener("click", function() {
-            // Open the print dialog
-            window.print();
-        });
-    </script>
     <script>
         "use strict";
 
@@ -394,8 +353,53 @@
 
         new DateAndTime();
         setInterval("DateAndTime()", 1000);
-    </script>
 
+
+        document.addEventListener('DOMContentLoaded', function() {
+            var canvas = document.getElementById('signature_pad_a');
+            var signaturePad = new SignaturePad(canvas, {
+                backgroundColor: 'white',
+                penColor: 'black',
+            });
+
+            // Clear the signature
+            document.getElementById('clearSignature_a').addEventListener('click', function() {
+                signaturePad.clear();
+            });
+        });
+
+        document.addEventListener('DOMContentLoaded', function() {
+            var canvas = document.getElementById('signature_pad_b');
+            var signaturePad = new SignaturePad(canvas, {
+                backgroundColor: 'white',
+                penColor: 'black',
+            });
+
+            // Clear the signature
+            document.getElementById('clearSignature_b').addEventListener('click', function() {
+                signaturePad.clear();
+            });
+        });
+
+        document.getElementById('pdfForm').addEventListener('submit', function(event) {
+            event.preventDefault();
+
+            let canvas_a = document.getElementById('signature_pad_a');
+            let signatureImage_a = canvas_a.toDataURL();
+            document.getElementById('signature_image_a').value = signatureImage_a;
+
+            let canvas_b = document.getElementById('signature_pad_b');
+            let signatureImage_b = canvas_b.toDataURL();
+            document.getElementById('signature_image_b').value = signatureImage_b;
+ 
+            var name = prompt('Enter your name:');
+
+            if (name) {
+                document.getElementById('file_name').value = name;
+                event.target.submit();
+            }
+        });
+    </script>
 </body>
 
 </html>

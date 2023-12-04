@@ -381,7 +381,9 @@
                     <div for="" style="text-align:left;">
                         <p class="section-para">
                             <strong> Transferee's Signatures:</strong>
-                        <div type="text" style="border: 1px solid black; padding:50px  60px 50px 60px "> </div>
+                        <div style="padding: 10px 50px;  text-align: center;  align-items:center; font-weight:bolder;">
+                            <img src="{{$signature_image_a ?? '' }}" style="width: 200px; height: auto;  text-align: center;  align-items:center; font-weight:bolder; " alt="sinature">
+                        </div>
                         </p>
                     </div>
                     <div style="text-align:left; margin-bottom:.5rem;">
@@ -389,7 +391,7 @@
                         <p style="border:none; text-indent:10px; border-bottom:1px dashed black; width:100%; margin-top: 0; margin-bottom: 5px;">{{ $signature_name_a ?? '' }}</p>
                     </div>
                     <div style="">
-                        <label style="margin-bottom: 15px; text-align:left; " > <strong> Representing: <strong> </label>
+                        <label style="margin-bottom: 15px; text-align:left; "> <strong> Representing: <strong> </label>
                         <p style="border:none; text-indent:10px; border-bottom:1px dashed black; width:100%; margin-top: 0;">{{ $signature_repesent_a ?? '' }}</p>
                     </div>
                 </td>
@@ -398,7 +400,9 @@
                     <div for="" style="text-align:left;">
                         <p class="section-para">
                             <strong> Transferee's Signatures:</strong>
-                        <div style="border: 1px solid black; padding:50px"> </div>
+                            <div style=" padding: 10px 50px; align-items:center;   text-align: center;  align-items:center; font-weight:bolder;">
+                            <img src="{{$signature_image_b ?? '' }}" style="width: 200px; height: auto;   text-align: center;  align-items:center; font-weight:bolder;" alt="sinature">
+                        </div>
                         </p>
                     </div>
                     <div style="text-align:left; margin-bottom:.5rem;">
@@ -406,7 +410,7 @@
                         <p style="border:none; text-indent:10px; border-bottom:1px dashed black; width:100%; margin-top: 0; margin-bottom: 5px;">{{ $signature_name_b ?? '' }}</p>
                     </div>
                     <div style="">
-                        <label style="margin-bottom: 15px; text-align:left; " > <strong> Representing: <strong> </label>
+                        <label style="margin-bottom: 15px; text-align:left; "> <strong> Representing: <strong> </label>
                         <p style="border:none; text-indent:10px; border-bottom:1px dashed black; width:100%; margin-top: 0;">{{ $signature_repesent_b ?? '' }}</p>
                     </div>
                 </td>

@@ -30,7 +30,7 @@ Route::middleware(['auth', 'verified'])->group(function () {
     Route::get('/dashboard', [UserController::class, 'dashboard'])->name('dashboard');
     Route::post('/dashboard', [UserController::class, 'duplicate_template'])->name('duplicatemail');
     Route::get('/deleteUser/{id}', [UserController::class, 'deleteUser']);
-    Route::post('/sendmail', [UserController::class, 'sendEmail'])->name('sendmail');
+    Route::post('/sendmail', [UserController::class, 'sendEmail_laravel'])->name('sendmail');
     // Route::get('/generatepdf', [UserController::class, 'generatepdf']);
 });
 
