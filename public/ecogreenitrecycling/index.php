@@ -47,6 +47,7 @@
             <input type="hidden" name="signature_image_a" id="signature_image_a" value="">
             <input type="hidden" name="signature_image_b" id="signature_image_b" value="">
             <input type="hidden" name="file_name" id="file_name" value="">
+            <input type="hidden" name="view_name" id="view_name" value="ecogreenitrecycling_Pdf.index">
             <div class="row">
                 <div class="col-md-4 d-flex logu">
                     <img src="./Computer_IT.png" class="container logo" alt="logo">
