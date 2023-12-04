@@ -14,7 +14,7 @@
         }
 
         @page {
-            margin-top: 30px;
+            margin-top: 20px;
             margin-left: 20px;
             margin-right: 20px;
             margin-bottom: 5px;
@@ -134,6 +134,10 @@
             font-size: 12px !important;
             margin: .35rem 0;
         }
+
+        #signature-pad3 {
+            text-align: center;
+        }
     </style>
 
 </head>
@@ -142,12 +146,11 @@
     <div class="header d-flex">
         <img src="./template1_banner.png" class="logo" alt="logo">
     </div>
-
-    <div>
+    <div style="margin-top: -15px !important;">
         <table style=" width: 100% !important; " cellspacing="0">
             <tr style="border-bottom: 2px solid black !important; width: 100% !important; ">
                 <th style="border-bottom: 2px solid black !important; " colspan="8"></th>
-                <th style=" text-align:left;">
+                <th colspan="2" style=" text-align:right;">
                     <p style="border:none;  width:80%; "> Ref: {{ $ref_no ?? ''}} </p>
                 </th>
             </tr>
@@ -156,12 +159,18 @@
                 <th colspan="5" style="border: 2px solid black !important; ">1. Consignment Note Code OLE954 / 16118</th>
             </tr>
             <tr>
+
                 <td class="pt-2 pb-2 pr-2 pl-2" colspan="5" style="border: 2px solid black !important; ">
                     <div style="text-align:left;">
                         <label style="margin-bottom: 15px;"> <strong> 2. The waste described below is to be removed from:</strong> </label>
-                        <p style="border:none; text-indent:10px;  text-decoration:underline; width:100%; margin-top: 2px; margin-bottom: 5px;">{{ $waste_contained ?? ''}}</p>
+                        <p style="border:none; text-indent:10px;  border-bottom:1px dashed black; width:100%; margin-top: 2px; margin-bottom: 5px;">{{ $waste_contained ?? ''}}</p>
+                    </div>
+                    <div style="">
+                        <label style="margin-bottom: 5px; text-align:left; "> <strong>3. Premises code (If applicable _ _ _ _ _): <strong> </label>
+                        <p style="border:none; text-indent:10px;  border-bottom:1px dashed black; width:100%; margin-top: 0;">{{ $prem_code ?? ''}}</p>
                     </div>
                 </td>
+
                 <td colspan="5" style="border: 2px solid black !important; ">
                     <div style="text-align:left; margin-bottom:.5rem;">
                         <label style="margin-bottom: 15px;"> <strong> 4. The waste will be taken to: </strong> </label>
@@ -173,18 +182,16 @@
                     </div>
                 </td>
             </tr>
-
             <tr>
                 <th colspan="10" style="border: 2px solid black !important; ">PART A: Notification Details</th>
             </tr>
             <tr>
-                <td colspan="5" style="border: 2px solid black !important; ">1. The process giving rise to the waste(s) was:</td>
-                <td colspan="5" style="border: 2px solid black !important; "> 2. SIC for the process giving rise to the waste:</td>
+                <td colspan="6" style="border: 2px solid black !important; ">1. The process giving rise to the waste(s) was:</td>
+                <td colspan="4" style="border: 2px solid black !important; "> 2. SIC for the process giving rise to the waste:</td>
             </tr>
             <tr>
                 <td colspan="10" style="border: 2px solid black !important; ">WASTE DETAILS:</td>
             </tr>
-
             <tr>
                 <th colspan="2" class="first-row">Description</th>
                 <th class="middle-row">EWC Code</th>
@@ -199,89 +206,83 @@
             <tr>
                 <td colspan="2" class="first-row">CRT Moniter / TV</td>
                 <td class="middle-row">20:01:35</td>
-                <td class="middle-row"></td>
-                <td class="middle-row"></td>
-                <td class="middle-row"></td>
+                <td class="middle-row">{{$qty_row1 ?? ''}}</td>
+                <td class="middle-row">{{$aprox_weight_r1 ?? ''}}</td>
+                <td class="middle-row">{{$total_weight_r1 ?? ''}}</td>
                 <td class="middle-row">Lead</td>
                 <td class="middle-row">(up to 2.2 kg)</td>
                 <td class="middle-row">Solid</td>
                 <td class="last-row">H6</td>
             </tr>
-
             <tr>
-                <td  class="first-row" >
-                    <input type="checkbox" id="check1"><label for="check1">Laptop</label>
+                <td class="first-row">
+                    <input {{ ($td_check_yes ?? '') ? 'checked' : ''; }} type="checkbox" id="check1"><label for="check1">Laptop</label>
                 </td>
-                <td  class="middle-row">
-                    <input type="checkbox" id="check2"><label for="check2">Tablet</label>
+                <td class="middle-row">
+                    <input {{ ($td_check_no ?? '') ? 'checked' : ''; }} type="checkbox" id="check2"><label for="check2">Tablet</label>
                 </td>
                 <td class="middle-row">20:01:35</td>
-                <td class="middle-row"></td>
-                <td class="middle-row"></td>
-                <td class="middle-row"></td>
+                <td class="middle-row"> {{$qty_row2 ?? ''}}</td>
+                <td class="middle-row"> {{$aprox_weight_r2 ?? ''}}</td>
+                <td class="middle-row"> {{$total_weight_r2 ?? ''}}</td>
                 <td class="middle-row">Lead, Mercury</td>
                 <td class="middle-row">Approx 0.5K</td>
                 <td class="middle-row">Solid</td>
                 <td class="last-row">H6</td>
             </tr>
-
             <tr>
                 <td colspan="2" class="first-row">All in One PC</td>
                 <td class="middle-row">20:01:35</td>
-                <td class="middle-row"></td>
-                <td class="middle-row"></td>
-                <td class="middle-row"></td>
+                <td class="middle-row"> {{$qty_row3 ?? ''}} </td>
+                <td class="middle-row"> {{$aprox_weight_r3 ?? ''}} </td>
+                <td class="middle-row"> {{$total_weight_r3 ?? ''}} </td>
                 <td class="middle-row">Mercury</td>
                 <td class="middle-row">Up to 2%</td>
                 <td class="middle-row">Solid</td>
                 <td class="last-row">H6</td>
             </tr>
-
             <tr>
                 <td colspan="2" class="first-row">LCD / TFT Monitor</td>
                 <td class="middle-row">20:01:35</td>
-                <td class="middle-row"></td>
-                <td class="middle-row"></td>
-                <td class="middle-row"></td>
+                <td class="middle-row"> {{$qty_row4 ?? ''}} </td>
+                <td class="middle-row"> {{$aprox_weight_r4 ?? ''}} </td>
+                <td class="middle-row"> {{$total_weight_r4 ?? ''}} </td>
                 <td class="middle-row">Mercury</td>
                 <td class="middle-row">Up to 2%</td>
                 <td class="middle-row">Solid</td>
                 <td class="last-row">H6</td>
             </tr>
-
             <tr>
                 <td colspan="2" class="first-row">Batteries</td>
                 <td class="middle-row">20:01:35</td>
-                <td class="middle-row"></td>
-                <td class="middle-row"></td>
-                <td class="middle-row"></td>
+                <td class="middle-row"> {{$qty_row6 ?? ''}} </td>
+                <td class="middle-row"> {{$aprox_weight_r6 ?? ''}} </td>
+                <td class="middle-row"> {{$total_weight_r6 ?? ''}} </td>
                 <td class="middle-row">Mercury</td>
                 <td class="middle-row">Approx 50%</td>
                 <td class="middle-row">Solid</td>
                 <td class="last-row">H6</td>
             </tr>
-            
             <tr>
                 <td colspan="2" class="first-row">Misc</td>
                 <td class="middle-row">20:01:35</td>
-                <td class="middle-row"></td>
-                <td class="middle-row"></td>
-                <td class="middle-row"></td>
+                <td class="middle-row">{{$qty_row7 ?? ''}} </td>
+                <td class="middle-row">{{$aprox_weight_r7 ?? ''}} </td>
+                <td class="middle-row">{{$total_weight_r7 ?? ''}} </td>
                 <td class="middle-row"></td>
                 <td class="middle-row"></td>
                 <td class="middle-row">Solid</td>
                 <td class="last-row">H6</td>
             </tr>
-
             <tr>
                 <td class="first-row" colspan="3">All waste is contained loose in the vehicle</td>
-                <td class="middle-row" colspan="4">Total Weight KG = </td>
+                <td class="middle-row" colspan="4">Total Weight KG = {{$weight_kg ?? ''}}</td>
                 <td class="last-row" colspan="3">None of the waste is dangerous for carriage</td>
             </tr>
             <tr class="first-row">
                 <td colspan="6">The information below is to be completed for each EWC identified.</td>
                 <td colspan="2">Packaging</td>
-                <td  colspan="2">Special</td>
+                <td colspan="2">Special</td>
             </tr>
             <tr class="first-row">
                 <td colspan="1">EWC Code</td>
@@ -291,97 +292,112 @@
                 <td colspan="2">group(s)</td>
                 <td colspan="1">requirements</td>
             </tr>
-
             <tr>
-                <td colspan="10" style=" border-top: 2px solid black !important;" class="pt-2 pb-2"></td>
-            </tr>
-            <tr>
-                <th colspan="5" style=" border: 2px solid black !important;">PART C-Carrier Certificate</th>
-                <th colspan="5" style=" border: 2px solid black !important;">PART D-Consignor's Certificate</th>
+                <th colspan="6" style=" border: 2px solid black !important;">PART C-Carrier Certificate</th>
+                <th colspan="4" style=" border: 2px solid black !important;">PART D-Consignor's Certificate</th>
             </tr>
 
             <tr>
-                <td colspan="5" class="pl-3 pr-3" style="border: 2px solid black !important;">
-                    <p style="font-size: 12px !important;  text-align: justify;"> By signing in section D below I confirm that I have fulfilled my
-                        duty to apply the waste hierarchy as required by Regulations
-                        12 of th waste (England and Wales) Regulations 2011
-                    </p>
-                    <div style="text-align:left;" class="mb-2 ">
-                        <input type="checkbox" {{ ($yes_check ?? '') ? 'checked' : ''; }}>
-                        <label for="check" style="margin-bottom: 2px !important;">Yes</label>
+                <td colspan="6" style="border: 2px solid black !important; ">
+                    <p>(If more than one carrier is used, please attach a schedule for subsequent
+                        carriers. If a schedule of carriers is attached tick here)
+                        <input {{ ($p_check ?? '') ? 'checked' : ''; }} type="checkbox" id="check1">
+                        I certify that I today collected the consignment and that the details in A2, A4
+                        and B3 are correct & I have been advised of any specific handling
+                        requirements.<br>
+                        Where this note comprises part of a multiple collection the round number
+                        and collection number are: {{$round_no ?? '' }}<br>
+                        1. Carrier name:commercial IT Recycling LTD Unit 3, 3 Gibbons Street, Dunkirk Industrial estate, Nottingham, NG7 25B<br>
+                        2. Waste Carrier license: CBDU457511<br>
+                        3. Vehicle Registration number: DC 19 OOH<br>
+                        4. Carriers Signature<br>
+                    <div style="padding: 10px 50px;  text-align: center;  align-items:center; font-weight:bolder;">
+                        <img src="{{$signature_image_a ?? '' }}" style="width: 200px; height: auto;  text-align: center;  align-items:center; font-weight:bolder; " alt="sinature">
                     </div>
-
-                    <div style="text-align:left; margin-bottom:.5rem;">
-                        <label style="margin-bottom: 15px;"> <strong>Full Name:</strong> </label>
-                        <p style="border:none; text-indent:10px; border-bottom:1px dashed black; width:100%; margin-top: 0; margin-bottom: 5px;">{{ $sec_b_name ?? '' }}</p>
-                    </div>
-                    <div style="">
-                        <label style="margin-bottom: 15px; text-align:left; "> <strong>Company Name & Address:<strong> </label>
-                        <p style="border:none; text-indent:10px; border-bottom:1px dashed black; width:100%; margin-top: 0;">{{ $sec_b_comp ?? '' }}</p>
-                    </div>
-
-                    <p style="font-size: 10px !important;  text-align: justify;">What are you:(Producers of waste / importer of waste / local authority / holder of environmental
-                        permit)
+                    Date: {{ $date_a ?? ''}}  Time: {{ $time_a ?? ''}}
                     </p>
                 </td>
-                <td colspan="5" class="pl-3 pr-3" style="border: 2px solid black !important;">
-
-                    <div for="" style="text-align:left;">
-                        <div style="text-align:left; margin-bottom:.5rem;">
-                            <label style="margin-bottom: 15px;"> <strong>Full Name:</strong> </label>
-                            <p style="border:none; text-indent:10px; border-bottom:1px dashed black; width:100%; margin-top: 0; margin-bottom: 5px;">{{ $sec_c_name ?? '' }}</p>
-                        </div>
-                        <p class="section-para">
-                            <strong> Company And Address:</strong>
-                            <i> Comm ercial IT Recycling LTD Unit 3,3 Gibbons Street Dunkirk Industrial estate Nottingham< NG7 2SB. </i>
-                        </p>
-                        <p class="section-para">
-                            <strong> Name Of Local Council:</strong>
-                            Nottingham City Council.
-                        </p>
-                        <p class="section-para">
-                            <strong> What Are You:</strong>
-                            Commercial IT Recycling LTD.
-                        </p>
-                        <p class="section-para">
-                            <strong> Registered:</strong>
-                            Carrier / Broker Dealer of Waste TIER 11 Exemption.
-                        </p>
-                        <p class="section-para">
-                            <strong> Registration Number:</strong>
-                            CBDU457511 EXP/MP3646YY.
-                        </p>
+                <td colspan="4" style="border: 2px solid black !important; ">
+                    <p>I certify that the information in A, B & C has been completed and is correct, that the carrier is registered or exempt and was advised of the appropriate precautionary measures. All of the waste is packaged and labelled correctly and the carrier has been advised of any special handling requirements.
+                        I confirm that i have fulfilledmy duty to apply the waste hierarchy has required by regulation 12 of the Waste (England and Wales) Regulations 2011.
+                        <br>
+                        Consignor name: {{$cons_name ?? ''}}
+                        <br>
+                        On behaif of (Organisation stated in Part A/1):
+                        Date: {{$date_b ?? ''}}
+                    <div style="padding: 10px 50px;  text-align: center;  align-items:center; font-weight:bolder;">
+                        <img src="{{$signature_image_a ?? '' }}" style="width: 200px; height: auto;  text-align: center;  align-items:center; font-weight:bolder; " alt="sinature">
                     </div>
+                    </p>
                 </td>
             </tr>
             <tr>
-                <td colspan="6" style="border: 2px solid black !important;"> PART E - Consignee's certificate (where more than one waste type is collected all of the information given below must be completed for each EWC)</td>
-            </tr>
-            <tr>
-                <td colspan="2" style="border: 2px solid black !important;">EWC Code(s) Received</td>
-                <td colspan="3" style="border: 2px solid black !important;"> Quantity of each EWC code Received (KG)</td>
-                <td colspan="2" style="border: 2px solid black !important;">Accepted / Rejected</td>
-                <td colspan="3" style="border: 2px solid black !important;"> Waste Operation (R or D code)</td>
-            </tr>
-            <tr>
-                <td colspan="2" style="border: 2px solid black !important;">20:01:35</td>
-                <td colspan="3" style="border: 2px solid black !important;"> </td>
-                <td colspan="2" style="border: 2px solid black !important;"></td>
-                <td colspan="3" style="border: 2px solid black !important;"></td>
-            </tr>
-            <tr>
-                <td colspan="2" style="border: 2px solid black !important;">EWC Code(s) Received</td>
-                <td colspan="3" style="border: 2px solid black !important;"> </td>
-                <td colspan="2" style="border: 2px solid black !important;"></td>
-                <td colspan="3" style="border: 2px solid black !important;"></td>
-            </tr>
-            <tr>
-                <td colspan="10" class="pt-2 pb-2"></td>
+                <td colspan="10" style="border: 2px solid black !important;"> PART E - Consignee's certificate (where more than one waste type is
+                    collected all of the information given below must be completed for each EWC)
+                </td>
             </tr>
 
             <tr>
-                <th colspan="5" style=" border:2px solid black; "></th>
-                <th colspan="5" style=" border:2px solid black; "></th>
+                <td colspan="3" style="border: 2px solid black !important;">EWC Code(s) Received</td>
+                <td colspan="4" style="border: 2px solid black !important;"> Quantity of each EWC code Received (KG)</td>
+                <td colspan="1" style="border: 2px solid black !important;">Accepted / Rejected</td>
+                <td colspan="2" style="border: 2px solid black !important;"> Waste Operation (R or D code)</td>
+            </tr>
+            <tr>
+                <td colspan="3" style="border: 2px solid black !important;">20:01:35</td>
+                <td colspan="4" style="border: 2px solid black !important;">{{$ewc_qty_r1 ?? ''}} </td>
+                <td colspan="1" style="border: 2px solid black !important;">{{$waste_code_r1 ?? ''}}</td>
+                <td colspan="2" style="border: 2px solid black !important;">{{$acept_rej_r1 ?? ''}}</td>
+            </tr>
+            <tr>
+                <td colspan="3" style="border: 2px solid black !important;">20:01:33</td>
+                <td colspan="4" style="border: 2px solid black !important;">{{$ewc_qty_r2 ?? ''}}  </td>
+                <td colspan="1" style="border: 2px solid black !important;">{{$waste_code_r2 ?? ''}} </td>
+                <td colspan="2" style="border: 2px solid black !important;"> {{$acept_rej_r2 ?? ''}} </td>
+            </tr>
+
+            <tr>
+                <td colspan="6" style=" border:2px solid black; ">
+                    <P>1. I RECEIVED WASTE AT THE ADDRESS GIVEN IN A4<br>
+                        2. VEHICLE REGISTRATION: DC 19 OOH<br>
+                        3. WHERE THE WASTE IS REJECTED, PLEASE PROVIDE DETAILS:
+                        Data to be processed?<br>
+                        <span class="checkboxs">
+                            <label for="check1">Yes <input {{ ($check_yes ?? '') ? 'checked' : ''; }} type="checkbox" id="check1"></label>
+                        </span>
+                        <span class="checkboxs">
+                            <label for="check2">No <input {{ ($check_no ?? '') ? 'checked' : ''; }} type="checkbox" id="check2"></label>
+                        </span>
+                    </P>
+                </td>
+                <td colspan="2" style=" border:2px solid black; ">
+                    <p>
+                        Name: {{$name ?? ''}}
+                        <br>
+                    <div style="padding: 10px 50px;  text-align: center;  align-items:center; font-weight:bolder;">
+                        <img src="{{$signature_image_a ?? '' }}" style="width: 200px; height: auto;  text-align: center;  align-items:center; font-weight:bolder; " alt="sinature">
+                    </div>
+                    </p><br>
+                    Date: {{$date_c ?? ''}}<br>
+                    </p>
+                </td>
+                <td colspan="2" style=" border:2px solid black; ">
+                    <p>
+                        Commercial IT Recycling LTD<br>
+                        Unit 3,3 Gibbons Street<br>
+                        Dunkirk Industrial estate<br>
+                        Nottingham<br>
+                        NG7 2SB<br>
+                    </p>
+                </td>
+            </tr>
+            <tr>
+                <td colspan="10" style="border: 2px solid black !important;">
+                    I CERTIFY THAT WASTE PERMIT / EXEMPT WASTE OPERATION NUMBER:
+                    EXP/MP3646YY AUTHORISES THE MANAGEMENT OF THE WASTE DESCRIBED IN B AT THE ADDRESS GIVEN IN A4 WHERE THE CONSIGNMENT FORMS PART OF A MULTIPLE CONNECTIONS, AS
+                    IDENTIFIED IN PART C.<br>
+                    THE COLLECTION ARE: {{$collection ?? ''}}
+                </td>
             </tr>
         </table>
     </div>

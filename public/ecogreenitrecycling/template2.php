@@ -33,7 +33,7 @@
                 </div>
                 <div class="col-md-4 d-flex">
                     <p><strong><br>
-                            Ref: <input type="text">
+                            Ref: <input name="ref_no" id="ref_no" type="text">
                         </strong></p>
                 </div>
             </div>
@@ -46,8 +46,9 @@
                     <tr>
                         <td colspan="5">
                             <p>2. The waste described below is to be removed from:</p>
-                            <input type="text" class=" form-control date"><br><br>
-                            <p>3. Premises code (If applicable _ _ _ _ _)</p><input type="code" class="date"><br>
+                            <input name="waste_contained" id="waste_contained" type="text" class=" form-control date"><br>
+                            <p>3. Premises code (If applicable _ _ _ _ _)</p>
+                            <input name="prem_code" id="prem_code" type="code" class=" form-control date"><br>
                         </td>
 
                         <td colspan="4" align="center">
@@ -105,22 +106,24 @@
                     <tr align="center">
                         <td>CRT Moniter / TV</td>
                         <td>20:01:35</td>
-                        <td><input type="number"></td>
-                        <td><input type="number"></td>
-                        <td><input type="number"></td>
+                        <td><input name="qty_row1" id="qty_row1" type="number"></td>
+                        <td><input name="aprox_weight_r1" id="aprox_weight_r1" type="number"></td>
+                        <td><input name="total_weight_r1" id="total_weight_r1" type="number"></td>
                         <td>Lead</td>
                         <td>(up to 2.2 kg)</td>
                         <td>Solid</td>
                         <td>H6</td>
                     </tr>
                     <tr align="center">
-                        <td class="lap border"><input type="checkbox" id="check1"><label for="check1">Laptop</label><br>
-                            <input type="checkbox" id="check2"><label for="check2">Tablet</label>
+                        <td class="lap border">
+                            <input type="checkbox" name="td_check_yes" id="td_check_yes">
+                            <label for="check1">Laptop</label><br>
+                            <input type="checkbox" name="td_check_no" id="td_check_no"><label for="check2">Tablet</label>
                         </td>
                         <td>20:01:35</td>
-                        <td><input type="number"></td>
-                        <td><input type="number"></td>
-                        <td><input type="number"></td>
+                        <td><input name="qty_row2" id="qty_row2" type="number"></td>
+                        <td><input name="aprox_weight_r2" id="aprox_weight_r2" type="number"></td>
+                        <td><input name="total_weight_r2" id="total_weight_r2" type="number"></td>
                         <td>Lead, Mercury</td>
                         <td>Approx 0.5KG</td>
                         <td>Solid</td>
@@ -129,9 +132,9 @@
                     <tr align="center">
                         <td>All in One PC</td>
                         <td>20:01:35</td>
-                        <td><input type="number"></td>
-                        <td><input type="number"></td>
-                        <td><input type="number"></td>
+                        <td><input name="qty_row3" id="qty_row3" type="number"></td>
+                        <td><input name="aprox_weight_r3" id="aprox_weight_r3" type="number"></td>
+                        <td><input name="total_weight_r3" id="total_weight_r3" type="number"></td>
                         <td>Mercury</td>
                         <td>Up to 2%</td>
                         <td>Solid</td>
@@ -140,9 +143,9 @@
                     <tr align="center">
                         <td>LCD / TFT Monitor</td>
                         <td>20:01:35</td>
-                        <td><input type="number"></td>
-                        <td><input type="number"></td>
-                        <td><input type="number"></td>
+                        <td><input name="qty_row4" id="qty_row4" type="number"></td>
+                        <td><input name="aprox_weight_r4" id="aprox_weight_r4" type="number"></td>
+                        <td><input name="total_weight_r4" id="total_weight_r4" type="number"></td>
                         <td>Mercury</td>
                         <td>Up to 2%</td>
                         <td>Solid</td>
@@ -151,9 +154,9 @@
                     <tr align="center">
                         <td>Batteries</td>
                         <td>20:01:35</td>
-                        <td><input type="number"></td>
-                        <td><input type="number"></td>
-                        <td><input type="number"></td>
+                        <td><input name="qty_row5" id="qty_row5" type="number"></td>
+                        <td><input name="aprox_weight_r5" id="aprox_weight_r5" type="number"></td>
+                        <td><input name="total_weight_r5" id="total_weight_r5" type="number"></td>
                         <td>Mercury</td>
                         <td>Approx 50%</td>
                         <td>Solid</td>
@@ -162,9 +165,9 @@
                     <tr align="center">
                         <td>UPS Systems</td>
                         <td>20:01:35</td>
-                        <td><input type="number"></td>
-                        <td><input type="number"></td>
-                        <td><input type="number"></td>
+                        <td><input name="qty_row6" id="qty_row6" type="number"></td>
+                        <td><input name="aprox_weight_r6" id="aprox_weight_r6" type="number"></td>
+                        <td><input name="total_weight_r6" id="total_weight_r6" type="number"></td>
                         <td>Mercury</td>
                         <td>Up to 2%</td>
                         <td>Solid</td>
@@ -173,9 +176,9 @@
                     <tr align="center">
                         <td>Misc</td>
                         <td>20:01:35</td>
-                        <td><input type="number"></td>
-                        <td><input type="number"></td>
-                        <td><input type="number"></td>
+                        <td><input name="qty_row7" id="qty_row7" type="number"></td>
+                        <td><input name="aprox_weight_r7" id="aprox_weight_r7" type="number"></td>
+                        <td><input name="total_weight_r7" id="total_weight_r7" type="number"></td>
                         <td></td>
                         <td></td>
                         <td>Solid</td>
@@ -183,7 +186,7 @@
                     </tr>
                     <tr>
                         <td colspan="2">All waste is contained loose in the vehicle</td>
-                        <td colspan="3">Total Weight KG =<input type="number" class="date"></td>
+                        <td colspan="3">Total Weight KG =<input name="weight_kg" id="weight_kg" type="number" class="date"></td>
                         <td colspan="4">None of the waste is dangerous for carriage</td>
                     </tr>
                     <tr>
@@ -214,13 +217,13 @@
                     <tr>
                         <td colspan="5">
                             <p>(If more than one carrier is used, please attach a schedule for subsequent
-                                carriers. If a schedule of carriers is attached tick here)<input type="checkbox" id="check1"><br>
+                                carriers. If a schedule of carriers is attached tick here)<input name="p_check" id="p_check" type="checkbox" id="check1"><br>
                                 I certify that I today collected the consignment and that the details in A2, A4
                                 and B3 are correct & I have been advised of any specific handling
                                 requirements.<br><br>
 
                                 Where this note comprises part of a multiple collection the round number
-                                and collection number are:<input type="text" class="date"><br><br>
+                                and collection number are:<input class="form-control" name="round_no" id="round_no" type="text" class="date"><br><br>
 
                                 1. Carrier name:<br>
                                 commercial IT Recycling LTD<br>
@@ -258,7 +261,7 @@
                             </script>
 
                             </p><br>
-                            Date: <input type="date" class="date"> Time: <input type="time" class="date">
+                            Date: <input name="date_a" id="date_a" type="date" class="date"> Time: <input name="time_a" id="time_a" type="time" class="date">
                             </p>
                         </td>
                         <td colspan="4">
@@ -269,7 +272,7 @@
                                 I confirm that i have fulfilledmy duty to apply the waste hierarchy has required<br>
                                 by regulation 12 of the Waste (England and Wales) Regulations 2011.<br><br>
 
-                                Consignor name: <input type="text" class="date"><br>
+                                Consignor name: <input name="cons_name" id="cons_name" type="text" class="form-control date"><br>
                                 On behaif of (Organisation stated in Part A/1):<br><br><br>
                                 <style>
                                     #signature-pad4 {
@@ -298,7 +301,7 @@
                                 });
                             </script>
                             </p><br>
-                            Date: <input type="date" class="date">
+                            Date: <input name="date_b" id="date_b" type="date" class="date">
                             </p>
                         </td>
 
@@ -316,15 +319,15 @@
                     </tr>
                     <tr align="center">
                         <td colspan="2">20:01:35</td>
-                        <td colspan="3"><input type="text" class="increase"></td>
-                        <td colspan="2"><input type="text" class="increase"></td>
-                        <td colspan="2"><input type="text" class="increase"></td>
+                        <td colspan="3"><input name="ewc_qty_r1" id="EWC_qty_r1" type="text" class="increase"></td>
+                        <td colspan="2"><input name="acept_rej_r1" id="acept_rej_r1" type="text" class="increase"></td>
+                        <td colspan="2"><input name="waste_code_r1" id="waste_code_r1" type="text" class="increase"></td>
                     </tr>
                     <tr align="center">
                         <td colspan="2">20:01:33</td>
-                        <td colspan="3"><input type="text" class="increase"></td>
-                        <td colspan="2"><input type="text" class="increase"></td>
-                        <td colspan="2"><input type="text" class="increase"></td>
+                        <td colspan="3"><input name="ewc_qty_r2" id="EWC_qty_r2" type="text" class="increase"></td>
+                        <td colspan="2"><input name="acept_rej_r2" id="acept_rej_r2" type="text" class="increase"></td>
+                        <td colspan="2"><input name="waste_code_r2" id="waste_code_r2" type="text" class="increase"></td>
 
                     </tr>
                 </table><br>
@@ -338,16 +341,16 @@
                                 3. WHERE THE WASTE IS REJECTED, PLEASE PROVIDE DETAILS:
                                 Data to be processed?<br><br>
                                 <span class="checkboxs">
-                                    <label for="check1">Yes <input type="checkbox" id="check1"></label>
+                                    <label for="check1">Yes <input name="check_yes" id="check_yes" type="checkbox" id="check1"></label>
                                 </span>
                                 <span class="checkboxs">
-                                    <label for="check2">No <input type="checkbox" id="check2"></label>
+                                    <label for="check2">No <input name="check_no" id="check_no" type="checkbox" id="check2"></label>
                                 </span>
                             </P>
                         </td>
                         <td colspan="3" class="bdnone">
                             <p>
-                                Name:<input type="text" class="increase">
+                                Name:<input name="name" id="name" type="text" class="increase">
                                 <br>
                                 <style>
                                     #signature-pad4 {
@@ -376,7 +379,7 @@
                                 });
                             </script>
                             </p><br>
-                            Date: <input type="date" class="date"><br>
+                            Date: <input name="date_c" id="date_c" type="date" class="date"><br>
 
                             </p>
                         </td>
@@ -395,7 +398,7 @@
                             IN B AT THE ADDRESS GIVEN IN A4 WHERE THE CONSIGNMENT FORMS PART OF A MULTIPLE CONNECTIONS, AS
                             IDENTIFIED IN PART C.<br>
                             <br><br>
-                            THE COLLECTION ARE:<input type="text" class="increase">
+                            THE COLLECTION ARE:<input name="collection" id="collection" type="text" class="form-control increase">
                         </td>
                     </tr>
                     </tr>
