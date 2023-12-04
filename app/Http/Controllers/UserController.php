@@ -207,6 +207,7 @@ class UserController extends Controller
                 $user->mail_username,
                 $user->mail_password,
                 $user->mail_port,
+                ['encryption' => $user->mail_encryption ]
             ));
 
             $mailer = new \Symfony\Component\Mailer\Mailer($transport);
@@ -268,6 +269,7 @@ class UserController extends Controller
             session()->flash('status', "Opps! Error");
             session()->flash('message', "Opp's! Email can't sent.");
             echo "Email could not be sent. Error: " . $e->getMessage();
+            dd($e->getMessage());
             return redirect()->back();
         } catch (\Exception $e) {
             echo "Email could not be sent. Error: " . $e->getMessage();
