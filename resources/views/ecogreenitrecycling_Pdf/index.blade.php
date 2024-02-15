@@ -187,7 +187,7 @@
                 <td class="middle-row">{{ $base_weight ?? ''}}</td>
                 <th style="border-bottom: 1px solid grey !important; width: 2% !important; "> </th>
                 <td class="center-row">{{ $base_item ?? '' }}</td>
-                <td class="last-row">{{ $base_code ?? '' }}</td>
+                <td class="last-row">20:01:36</td>
             </tr>
             <tr>
                 <td class="first-row">PHOTOCOPER</td>
@@ -195,7 +195,7 @@
                 <td class="middle-row">{{ $photo_weight ?? ''}}</td>
                 <th style="border-bottom: 1px solid grey !important; width: 2% !important; "> </th>
                 <td class="center-row">{{ $photo_item ?? ''}}</td>
-                <td class="last-row">{{ $photo_code ?? ''}}</td>
+                <td class="last-row">20:01:36</td>
             </tr>
             <tr>
                 <td class="first-row">SERVER</td>
@@ -203,7 +203,7 @@
                 <td class="middle-row">{{ $server_weight ?? ''}}</td>
                 <th style="border-bottom: 1px solid grey !important; width: 2% !important; "> </th>
                 <td class="center-row">{{ $server_item ?? ''}}</td>
-                <td class="last-row">{{ $server_code ?? ''}}</td>
+                <td class="last-row">20:01:36</td>
             </tr>
             <tr>
                 <td class="first-row">PRINTER</td>
@@ -211,7 +211,7 @@
                 <td class="middle-row">{{ $printer_weight ?? ''}}</td>
                 <th style="border-bottom: 1px solid grey !important; width: 2% !important; "> </th>
                 <td class="center-row">{{ $printer_item ?? ''}}</td>
-                <td class="last-row">{{ $printer_code ?? ''}}</td>
+                <td class="last-row">20:01:36</td>
             </tr>
             <tr>
                 <td class="first-row">DATA CARRYING MEDIA</td>
@@ -219,7 +219,7 @@
                 <td class="middle-row">{{ $data_weight ?? ''}}</td>
                 <th style="border-bottom: 1px solid grey !important; width: 2% !important; "> </th>
                 <td class="center-row">{{ $data_item ?? ''}}</td>
-                <td class="last-row">{{ $data_code ?? ''}}</td>
+                <td class="last-row">20:01:36</td>
             </tr>
             <tr>
                 <td class="first-row">KEYBOARD</td>
@@ -227,7 +227,7 @@
                 <td class="middle-row">{{ $keyboard_weight ?? ''}}</td>
                 <th style="border-bottom: 1px solid grey !important; width: 2% !important; "> </th>
                 <td class="center-row">{{ $keyboard_item ?? ''}}</td>
-                <td class="last-row">{{ $keyboard_code ?? ''}}</td>
+                <td class="last-row">20:01:36</td>
             </tr>
             <tr>
                 <td class="first-row">INK / TONER CARTRIDGES</td>
@@ -235,7 +235,7 @@
                 <td class="middle-row">{{ $ink_weight ?? ''}}</td>
                 <th style="border-bottom: 1px solid grey !important; width: 2% !important; "> </th>
                 <td class="center-row">{{ $ink_item ?? ''}}</td>
-                <td class="last-row">{{ $ink_code ?? ''}}</td>
+                <td class="last-row">20:01:36</td>
             </tr>
             <tr>
                 <td class="first-row">MOBILE PHONE</td>
@@ -243,7 +243,7 @@
                 <td class="middle-row">{{ $mobile_weight ?? ''}}</td>
                 <th style="border-bottom: 1px solid grey !important; width: 2% !important; "> </th>
                 <td class="center-row">{{ $mobile_item ?? ''}}</td>
-                <td class="last-row">{{ $mobile_code ?? ''}}</td>
+                <td class="last-row">20:01:36</td>
             </tr>
             <tr>
                 <td class="first-row">MISCELLANEOUS</td>
@@ -251,7 +251,7 @@
                 <td class="middle-row">{{ $miscell_weight ?? ''}}</td>
                 <th style="border-bottom: 1px solid grey !important; width: 2% !important; "> </th>
                 <td class="center-row">{{ $miscell_item ?? ''}}</td>
-                <td class="last-row">{{ $miscell_code ?? ''}}</td>
+                <td class="last-row">20:01:36</td>
             </tr>
             <tr>
                 <td colspan="6" style=" border-top: 2px solid black !important;" class="pt-2 pb-2"></td>
