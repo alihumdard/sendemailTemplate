@@ -85,7 +85,7 @@
                     <tr align="center">
                         <th>DESCRIPTION</th>
                         <th>QUANTITY</th>
-                        <th>APPROX. WEIGHT</th>
+                        <th>APPROX. WEIGHT(KG)</th>
                         <th>PER ITEM (KG)</th>
                         <th>EWC CODE</th>
                     </tr>
@@ -94,63 +94,63 @@
                         <td><input name="base_qty" id="base_qty" type="number"></td>
                         <td><input name="base_weight" id="base_weight" type="number"></td>
                         <td><input name="base_item" id="base_item" type="number"></td>
-                        <td><input name="base_code" id="base_code" type="number"></td>
+                        <td>20:01:36</td>
                     </tr>
                     <tr align="center">
                         <td>PHOTOCOPER</td>
                         <td><input name="photo_qty" id="photo_qty" type="number"></td>
                         <td><input name="photo_weight" id="photo_weight" type="number"></td>
                         <td><input name="photo_item" id="photo_item" type="number"></td>
-                        <td><input name="photo_code" id="photo_code" type="number"></td>
+                        <td>20:01:36</td>
                     </tr>
                     <tr align="center">
                         <td>SERVER</td>
                         <td><input name="server_qty" id="server_qty" type="number"></td>
                         <td><input name="server_weight" id="server_weight" type="number"></td>
                         <td><input name="server_item" id="server_item" type="number"></td>
-                        <td><input name="server_code" id="server_code" type="number"></td>
+                        <td>20:01:36</td>
                     </tr>
                     <tr align="center">
                         <td>PRINTER</td>
                         <td><input name="printer_qty" id="printer_qty" type="number"></td>
                         <td><input name="printer_weight" id="printer_weight" type="number"></td>
                         <td><input name="printer_item" id="printer_item" type="number"></td>
-                        <td><input name="printer_code" id="printer_code" type="number"></td>
+                        <td>20:01:36</td>
                     </tr>
                     <tr align="center">
                         <td>DATA CARRYING MEDIA</td>
                         <td><input name="data_qty" id="data_qty" type="number"></td>
                         <td><input name="data_weight" id="data_weight" type="number"></td>
                         <td><input name="data_item" id="data_item" type="number"></td>
-                        <td><input name="data_code" id="data_code" type="number"></td>
+                        <td>20:01:36</td>
                     </tr>
                     <tr align="center">
                         <td>KEYBOARD</td>
                         <td><input name="keyboard_qty" id="keyboard_qty" type="number"></td>
                         <td><input name="keyboard_weight" id="keyboard_weight" type="number"></td>
                         <td><input name="keyboard_item" id="keyboard_item" type="number"></td>
-                        <td><input name="keyboard_code" id="keyboard_code" type="number"></td>
+                        <td>20:01:36</td>
                     </tr>
                     <tr align="center">
                         <td>INK / TONER CARTRIDGES</td>
                         <td><input name="ink_qty" id="ink_qty" type="number"></td>
                         <td><input name="ink_weight" id="ink_weight" type="number"></td>
                         <td><input name="ink_item" id="ink_item" type="number"></td>
-                        <td><input name="ink_code" id="ink_code" type="number"></td>
+                        <td>20:01:36</td>
                     </tr>
                     <tr align="center">
                         <td>MOBILE PHONE</td>
                         <td><input name="mobile_qty" id="mobile_qty" type="number"></td>
                         <td><input name="mobile_weight" id="mobile_weight" type="number"></td>
                         <td><input name="mobile_item" id="mobile_item" type="number"></td>
-                        <td><input name="mobile_code" id="mobile_code" type="number"></td>
+                        <td>20:01:36</td>
                     </tr>
                     <tr align="center">
                         <td>MISCELLANEOUS</td>
                         <td><input name="miscell_qty" id="miscell_qty" type="number"></td>
                         <td><input name="miscell_weight" id="miscell_weight" type="number"></td>
                         <td><input name="miscell_item" id="miscell_item" type="number"></td>
-                        <td><input name="miscell_code" id="miscell_code" type="number"></td>
+                        <td>20:01:36</td>
                     </tr>
                 </table><br>
             </div>
@@ -172,7 +172,10 @@
                                     <label for="yes_check">Yes</label>
                                 </p><br>
                                 Full Name: <input name="sec_b_name" id="sec_b_name" type="text" class="increase"><br><br>
-                                Company Name & Address: <input name="sec_b_comp" id="sec_b_comp" type="text" class="increase"><br><br>
+                               
+                             Company Name & Address: <input name="sec_b_comp" id="sec_b_comp" type="text" class="increase"><br><br>
+                             <input name="sec_b_comp" id="sec_b_comp" type="text" class="increase"><br><br>
+                             <input name="sec_b_comp" id="sec_b_comp" type="text" class="increase"><br><br>
                                 What are you:<br>
                                 (Producers of waste / importer of waste / local authority / holder of environmental
                                 permit)
