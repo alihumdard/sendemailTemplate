@@ -29,7 +29,7 @@
                     <p>www.computeritdisposals.co.uk</p>
                 </div>
                 <div class="col-md-4 d-flex">
-                    <h1><strong>DUTY OF CARE</strong></h1>
+                    <h2><strong>Hazardous waste consignment note</strong></h2>
                 </div>
                 <div class="col-md-4 d-flex">
                     <p><strong><br>
@@ -46,9 +46,9 @@
                     <tr>
                         <td colspan="5">
                             <p>2. The waste described below is to be removed from:</p>
-                            <input name="waste_contained" id="waste_contained" type="text" class=" form-control date"><br>
+                            <textarea name="waste_contained" id="waste_contained" type="text" class=" form-control date"></textarea><br>
                             <p>3. Premises code (If applicable _ _ _ _ _)</p>
-                            <input name="prem_code" id="prem_code" type="code" class=" form-control date"><br>
+                            <input name="prem_code" id="prem_code" type="code" class=" form-control date"><br><br>
                         </td>
 
                         <td colspan="4" align="center">
