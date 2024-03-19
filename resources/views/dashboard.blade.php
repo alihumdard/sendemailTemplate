@@ -45,7 +45,7 @@
                                         </div>
                                         <div class="mb-3">
                                             <label for="cc_email" class="form-label" style="font-weight: 600;">Cc Email</label>
-                                            <input type="email"  class="rounded form-control" id="cc_email" name="cc_email" value="{{old('cc_email', $user->cc_email)}}" placeholder="Enter Cc email">
+                                            <input type="email" class="rounded form-control" id="cc_email" name="cc_email" value="{{old('cc_email', $user->cc_email)}}" placeholder="Enter Cc email">
                                         </div>
 
                                         <div class="mb-3">
@@ -61,7 +61,7 @@
 
                                         <div class="mb-3">
                                             <label for="reply_email" class="form-label" style="font-weight: 600;">Reply Email</label>
-                                            <input type="email"  class="rounded form-control" id="reply_email" value="{{old('reply_email', $user->reply_email)}}" name="reply_email" placeholder="Enter reply email">
+                                            <input type="email" class="rounded form-control" id="reply_email" value="{{old('reply_email', $user->reply_email)}}" name="reply_email" placeholder="Enter reply email">
                                         </div>
                                         <div class="mb-3">
                                             <label for="file_attachments" class="form-label" style="font-weight: 600;">File Attachments</label>
@@ -81,7 +81,7 @@
                                         <div class="mb-3">
                                             <label for="email_body" class="form-label" style="font-weight: 800;">Email Body</label>
                                             <textarea required="" class="form-control" style="height:200px !important;" rows="20" id="email_body" name="email_body" placeholder="Write email body">
-                                                {!! (old('email_body')) ? old('email_body') : (($user->email_body != NULL) ? base64_decode($user->email_body) : config('constants.EMAIL_BODY')) !!}
+                                            {!! (old('email_body')) ? old('email_body') : (($user->email_body != NULL) ? $user->email_body : config('constants.EMAIL_BODY')) !!}
                                             </textarea>
                                         </div>
                                     </div>

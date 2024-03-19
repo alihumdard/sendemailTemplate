@@ -60,18 +60,18 @@ class ProfileController extends Controller
 
     public function mailsetting(Request $request): RedirectResponse
     {
-        $validated = $request->validate([
-            'reply_email'   => ['email'],
-            'cc_email'      => ['email'],
-            'email_subject' => ['string'],
-            'email_body'    => ['string'],
-        ]);
+        // $validated = $request->validate([
+        //     'reply_email'   => ['email'],
+        //     'cc_email'      => ['email'],
+        //     'email_subject' => ['string'],
+        //     'email_body'    => ['string'],
+        // ]);
 
         $request->user()->update([
             'reply_email'   => $request->reply_email,
             'cc_email'      => $request->cc_email,
             'email_subject' => $request->email_subject,
-            'email_body'    => base64_encode($request->email_body),
+            'email_body'    => $request->email_body,
         ]);
 
         return Redirect::route('profile.mailsetting')->with('status', 'profile-updated');
