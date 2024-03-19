@@ -47,10 +47,10 @@
             <input type="hidden" name="signature_image_a" id="signature_image_a" value="">
             <input type="hidden" name="signature_image_b" id="signature_image_b" value="">
             <input type="hidden" name="file_name" id="file_name" value="">
-            <input type="hidden" name="view_name" id="view_name" value="ecogreenitrecycling_Pdf.index">
+            <input type="hidden" name="view_name" id="view_name" value="ecogreenitrecycling_Pdf.template3">
             <div class="row">
                 <div class="col-md-4 d-flex logu">
-                    <img src="./Computer_IT.png" class="container logo" alt="logo">
+                    <img src="./ecogreen.webp" class="container logo" alt="logo">
                     <p>www.computeritdisposals.co.uk</p>
                 </div>
                 <div class="col-md-4 d-flex">

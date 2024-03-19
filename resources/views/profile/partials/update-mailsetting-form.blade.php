@@ -36,7 +36,7 @@
         <div>
             <x-input-label class="mb-1" for="email_body" :value="__('Email Body')" />
             <textarea class="form-control" style="height:200px !important;" rows="20" id="email_body" name="email_body" placeholder="Write email body">
-            {!! (old('email_body')) ? old('email_body') : (($user->email_body != NULL) ? base64_decode($user->email_body) : config('constants.EMAIL_BODY')) !!}
+            {!! (old('email_body')) ? old('email_body') : (($user->email_body != NULL) ? $user->email_body : config('constants.EMAIL_BODY')) !!}
             </textarea>
         </div>
 
